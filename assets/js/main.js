@@ -1,6 +1,10 @@
+// Api Keys
+
+const tmdbApi = "b11a13a3abf2339dc3e37bef3ec05d32";
+
 // Genre
 
-let genre = {
+let genreList = {
     "Action" : 28,
     "Adventure" : 12,
     "Animation" : 16,
