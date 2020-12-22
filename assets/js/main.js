@@ -51,6 +51,8 @@ function sendPreferences(preferencesForm) {
 // Other Functions
 
 function recommendationList(result) {
+    //placeholder as string, later push to divs using jQuery. ie: for loop... divID+numerator = result
+    
     let list = "";
     for (i=0; i<result.results.length; i++){
         list +=  `<h2>${result.results[i].title}</h2><br><h4>Summary:</h4><p>${result.results[i].overview}</p><br><h4>Genres:</h4><p>${genreList[result.results[i].genre_ids[i]]}</p><br>`    
