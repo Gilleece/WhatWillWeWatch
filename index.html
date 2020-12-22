@@ -10,7 +10,7 @@
 </head>
 <body>
     <!--User Preferences Form-->
-    <form>
+    <form onsubmit="return sendPreferences(this);>
         <label for="genre">Choose a genre:</label>
         <select id="genre" name="genre">
             <option value="28">Action</option>
@@ -18,6 +18,7 @@
             <option value="16">Animation</option>
             <option value="35">Comedy</option>
         </select>
+        <button type="submit">Send</button>
     </form>
     
 </body>
