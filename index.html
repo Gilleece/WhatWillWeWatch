@@ -10,16 +10,21 @@
 </head>
 <body>
     <!--User Preferences Form-->
-    <form onsubmit="return sendPreferences(this);">
+    <form id="preferencesForm">
         <label for="genre">Choose a genre:</label>
-        <select id="genre" name="genre">
+        <!--<select id="genre" name="genre">
             <option value="28">Action</option>
             <option value="12">Adventure</option>
             <option value="16">Animation</option>
             <option value="35">Comedy</option>
-        </select>
-        <button type="submit">Send</button>
+        </select>-->
+        <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
+
+    <div id="recommendationBox">
+        <p>TEST</p>
+
+    </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
