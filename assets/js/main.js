@@ -29,24 +29,33 @@ let genreList = {
 // Send Request Function
 
 function sendPreferences(preferencesForm) { 
+
     let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
     let genre1URL = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
-    let userGenre3 = `%2C${genre3.value}`;
-    function preferencesURL (base, gen1, gen2, gen3) {
-        //checks for option genre 2 and 3
+    let userGenre3 = `%2C${genre3.value}`; 
+    let certification =  `&certification_country=US&certification=${ageRating.value}`  
+
+    function preferencesURL (base, gen1, gen2, gen3, cert) {
+        let urlCombination = base + gen1;
+        //checks for option genre 2 and 3        
         if (gen2 && gen3 != "%2Cnone") {
-            return base + gen1 + gen2 + gen3;
+            urlCombination += gen2 + gen3;
         } else if (gen2 != "%2Cnone" && gen3 === "%2Cnone") {
-            return base + gen1 + gen2;
+            urlCombination += gen2;
         } else if (gen3 != "%2Cnone" && gen2 === "%2Cnone") {
-            return base + gen1 + gen3;
-        } 
-        // URL returned if only 1 genre is selected
-        return base + gen1;
+            urlCombination += gen3;
+        };
+        // Checks for age rating selection
+        if (`${ageRating.value}` != "all"){
+            urlCombination += certification;
+        }
+        // Returns complete URL
+        return urlCombination;
     };
+    
     $.when(
-        $.getJSON(preferencesURL(baseURL, genre1URL, userGenre2, userGenre3))
+        $.getJSON(preferencesURL(baseURL, genre1URL, userGenre2, userGenre3, certification))
     ).then(
         function(response) {
             let recommendations = response;
