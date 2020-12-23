@@ -29,7 +29,7 @@ let genreList = {
 // Send Request Function
 
 function sendPreferences(preferencesForm) { 
-    let preferencesURL = "https://api.themoviedb.org/3/discover/movie?api_key=b11a13a3abf2339dc3e37bef3ec05d32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28";
+    let preferencesURL = `https://api.themoviedb.org/3/discover/movie?api_key=b11a13a3abf2339dc3e37bef3ec05d32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre.value}`;
     $.when(
         $.getJSON(preferencesURL)
     ).then(
@@ -55,7 +55,17 @@ function recommendationList(result) {
     
     let list = "";
     for (i=0; i<result.results.length; i++){
-        list +=  `<h2>${result.results[i].title}</h2><br><h4>Summary:</h4><p>${result.results[i].overview}</p><br><h4>Genres:</h4><p>${genreList[result.results[i].genre_ids[i]]}</p><br>`    
+        list += 
+        //title 
+        `<h2>${result.results[i].title}</h2><br>`
+        //summary
+        +`<h4>Summary:</h4><p>${result.results[i].overview}</p><br><h4>Genres:</h4><p>` 
+        //genre list
+        for (j=0; j<result.results[i].genre_ids.length; j++) {
+            if (j != result.results[i].genre_ids.length-1) {
+                list += `${genreList[result.results[i].genre_ids[j]]},`
+                } else { list += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
+            }
     };
     return list;
 };
