@@ -77,6 +77,7 @@
             <option value="10752">War</option>
             <option value="37">Western</option>
         </select>
+        <br>
         <label for="ageRating">Age rating:</label>
         <select id="ageRating" name="ageRating">
             <option value="all" selected="selected">All</option>
@@ -87,6 +88,18 @@
             <option value="NC-17">NC-17</option>
             <option value="NR">Not rated</option>
         </select>
+        <label for="sortBy">Sort By:</label>
+        <select id="sortBy" name="sortBy">
+            <option value="popularity.desc" selected="selected">Most Popular</option>
+            <option value="popularity.asc">Least Popular</option>
+            <option value="vote_average.desc">Highest Score</option>
+            <option value="vote_average.asc">Lowest Score</option>  
+            <option value="release_date.desc">Newest</option>                                   
+            <option value="release_date.asc">Oldest</option>  
+            <option value="vote_count.desc">Most scored</option>                       
+            <option value="vote_count.asc">Least scored</option>                                           
+        </select>
+        
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
 

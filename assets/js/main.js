@@ -30,7 +30,7 @@ let genreList = {
 
 function sendPreferences(preferencesForm) { 
 
-    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&include_adult=false&include_video=false&page=1`;
     let genre1URL = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`; 
