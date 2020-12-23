@@ -53,7 +53,7 @@ function sendPreferences(preferencesForm) {
         // Returns complete URL
         return urlCombination;
     };
-    
+
     $.when(
         $.getJSON(preferencesURL(baseURL, genre1URL, userGenre2, userGenre3, certification))
     ).then(
@@ -83,7 +83,9 @@ function recommendationList(result) {
         //title 
         `<h2>${result.results[i].title}</h2><br>`
         //summary
-        +`<h4>Summary:</h4><p>${result.results[i].overview}</p><br><h4>Genres:</h4><p>` 
+        +`<h4>Average score:</h4><h3>${result.results[i].vote_average}</h3><h4>Score count: ${result.results[i].vote_count}</h4>`
+        //Scoring
+        +`<h4>Summary:</h4><p>${result.results[i].overview}</p><br><h4>Genres:</h4><p>`
         //genre list
         for (j=0; j<result.results[i].genre_ids.length; j++) {
             if (j != result.results[i].genre_ids.length-1) {
