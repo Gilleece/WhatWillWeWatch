@@ -29,9 +29,24 @@ let genreList = {
 // Send Request Function
 
 function sendPreferences(preferencesForm) { 
-    let preferencesURL = `https://api.themoviedb.org/3/discover/movie?api_key=b11a13a3abf2339dc3e37bef3ec05d32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre.value}`;
+    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+    let genre1URL = `&with_genres=${genre.value}`;
+    let userGenre2 = `%2C${genre2.value}`;
+    let userGenre3 = `%2C${genre3.value}`;
+    function preferencesURL (base, gen1, gen2, gen3) {
+        //checks for option genre 2 and 3
+        if (gen2 && gen3 != "%2Cnone") {
+            return base + gen1 + gen2 + gen3;
+        } else if (gen2 != "%2Cnone" && gen3 === "%2Cnone") {
+            return base + gen1 + gen2;
+        } else if (gen3 != "%2Cnone" && gen2 === "%2Cnone") {
+            return base + gen1 + gen3;
+        } 
+        // URL returned if only 1 genre is selected
+        return base + gen1;
+    };
     $.when(
-        $.getJSON(preferencesURL)
+        $.getJSON(preferencesURL(baseURL, genre1URL, userGenre2, userGenre3))
     ).then(
         function(response) {
             let recommendations = response;
