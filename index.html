@@ -87,17 +87,7 @@
             <option value="R">R</option>
             <option value="NC-17">NC-17</option>
             <option value="NR">Not rated</option>
-        </select>
-        <label for="runtime">Runtime (less than):</label>
-        <select id="runtime" name="runtime">
-            <option value="500" selected="selected">Any</option>
-            <option value="180">3 hours</option>
-            <option value="150">2.5 hours</option>
-            <option value="120">2 hours</option>
-            <option value="90">1.5 hours</option>
-            <option value="60">1 hour</option>
-            <option value="30">30 minutes</option>            
-        </select>
+        </select>               
         <br>
         <label for="sortBy">Sort By:</label>
         <select id="sortBy" name="sortBy">
@@ -110,6 +100,19 @@
             <option value="vote_count.desc">Most scored</option>                       
             <option value="vote_count.asc">Least scored</option>                                           
         </select>
+        <br>
+        <h4>Experimental:</h4>
+        <label for="runtime">Runtime (less than):</label> 
+        <select id="runtime" name="runtime">
+            <option value="500" selected="selected">Any</option>
+            <option value="180">3 hours</option>
+            <option value="150">2.5 hours</option>
+            <option value="120">2 hours</option>
+            <option value="90">1.5 hours</option>
+            <option value="60">1 hour</option>
+            <option value="30">30 minutes</option>            
+        </select>
+        <p>Please doublecheck your choice's runtime if you use this feature. Many movie's runtimes are not registered correctly, hence this feature is "experimental". </p>
         
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
