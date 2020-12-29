@@ -30,8 +30,9 @@ let genreList = {
 
 function sendPreferences(preferencesForm) { 
 
-    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&include_adult=false&include_video=false&page=1`;
-    let genre1URL = `&with_genres=${genre.value}`;
+    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&include_adult=false&include_video=false&page=1`;
+    // Below are options that can't have a default value (hence are not in the base URL)
+    let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`; 
     let certification =  `&certification_country=US&certification=${ageRating.value}`  
@@ -55,7 +56,7 @@ function sendPreferences(preferencesForm) {
     };
 
     $.when(
-        $.getJSON(preferencesURL(baseURL, genre1URL, userGenre2, userGenre3, certification))
+        $.getJSON(preferencesURL(baseURL, userGenre1, userGenre2, userGenre3, certification))
     ).then(
         function(response) {
             let recommendations = response;
@@ -63,7 +64,7 @@ function sendPreferences(preferencesForm) {
             console.log(response);
         }, function(errorResponse) {
             if (errorResponse.status === 404) {
-                $("#recommendationBox").html(`<h2>Oh no, it seems like we can't find any movies matching those preferences...</h2>`);
+                $("#recommendationBox").html(`<h2>Oh no, it seems like we can't connect... Please try again!</h2>`);
             } else {
                 console.log(errorResponse);
                 $("#recommendationBox").html(`<h2>Error: ${errorResponse.responseJSON.status_message}</h2>`);
