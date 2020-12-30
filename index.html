@@ -78,6 +78,19 @@
             <option value="37">Western</option>
         </select>
         <br>
+        <label for="minScore">Minimum Score:</label>
+        <select id="minScore" name="minScore">
+            <option value="0" selected="selected">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>            
+        </select>
         <label for="ageRating">Age rating:</label>
         <select id="ageRating" name="ageRating">
             <option value="all" selected="selected">All</option>
@@ -87,8 +100,18 @@
             <option value="R">R</option>
             <option value="NC-17">NC-17</option>
             <option value="NR">Not rated</option>
-        </select>               
-        <br>
+        </select>                 
+        <br>        
+        <label for="runtime">Runtime* (less than):</label> 
+        <select id="runtime" name="runtime">
+            <option value="500" selected="selected">Any</option>
+            <option value="180">3 hours</option>
+            <option value="150">2.5 hours</option>
+            <option value="120">2 hours</option>
+            <option value="90">1.5 hours</option>
+            <option value="60">1 hour</option>
+            <option value="30">30 minutes</option>            
+        </select>
         <label for="sortBy">Sort By:</label>
         <select id="sortBy" name="sortBy">
             <option value="popularity.desc" selected="selected">Most Popular</option>
@@ -100,19 +123,7 @@
             <option value="vote_count.desc">Most scored</option>                       
             <option value="vote_count.asc">Least scored</option>                                           
         </select>
-        <br>
-        <h4>Experimental:</h4>
-        <label for="runtime">Runtime (less than):</label> 
-        <select id="runtime" name="runtime">
-            <option value="500" selected="selected">Any</option>
-            <option value="180">3 hours</option>
-            <option value="150">2.5 hours</option>
-            <option value="120">2 hours</option>
-            <option value="90">1.5 hours</option>
-            <option value="60">1 hour</option>
-            <option value="30">30 minutes</option>            
-        </select>
-        <p>Please doublecheck your choice's runtime if you use this feature. Many movie's runtimes are not registered correctly, hence this feature is "experimental". </p>
+        <p>*Please doublecheck movie runtimes, as some movies have incorrect runtimes assigned to them.</p>
         
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
