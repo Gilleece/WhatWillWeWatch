@@ -39,7 +39,7 @@ function sendPreferences(preferencesForm) {
     let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`; 
-    let certification =  `&certification_country=US&certification=${ageRating.value}`  
+    let certification = `&certification_country=US&certification=${ageRating.value}`  
 
     function preferencesURL (base, gen1, gen2, gen3, cert) {
         let urlCombination = base + gen1;
@@ -53,7 +53,7 @@ function sendPreferences(preferencesForm) {
         };
         // Checks for age rating selection
         if (`${ageRating.value}` != "all"){
-            urlCombination += certification;
+            urlCombination += cert;
         }
         // Returns complete URL
         return urlCombination;
@@ -61,8 +61,11 @@ function sendPreferences(preferencesForm) {
 
     $.when(
         $.getJSON(preferencesURL(baseURL, userGenre1, userGenre2, userGenre3, certification))
-    ).then(
+    ).then(               
         function(response) {
+            //if(`${decadeFrom.value}` > `${decadeTo.value}`) {
+            //alert("When choosing to search by decade, 'from' must be lower than 'to'");
+            //}; 
             let recommendations = response;
             $("#recommendationBox").html(recommendationList(recommendations));
             console.log(response);
@@ -82,7 +85,10 @@ function sendPreferences(preferencesForm) {
 function recommendationList(result) {
     //placeholder as string, later push to divs using jQuery. ie: for loop... divID+numerator = result
     
-    let list = "";
+    let list = "";    
+    if (result.total_results == 0) {
+        return `<h2>Sorry, we found no movies that match your search settings... :(</h2>`;
+    };
     for (i=0; i<result.results.length; i++){
         list += 
         //title 
