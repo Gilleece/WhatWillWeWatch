@@ -1,4 +1,4 @@
-// Api Keys
+// Api Keys (Hiding the key for this API is not really possible, or necessary due to the free/unlimited nature of it. More info here: https://www.themoviedb.org/talk/582744abc3a3683601019dcc?language=en-IE)
 
 const tmdbApi = "b11a13a3abf2339dc3e37bef3ec05d32";
 
@@ -30,7 +30,7 @@ let genreList = {
 
 function sendPreferences(preferencesForm) { 
 
-    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&include_adult=false&include_video=false&page=1`;
+    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&with_runtime.gte=30&include_adult=false&include_video=false&page=1`;
     // Below are options that can't have a default value (hence are not in the base URL)
     let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
