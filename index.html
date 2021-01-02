@@ -137,7 +137,7 @@
             <option value="1900-01-01">1900</option>             
         </select>
         <br>        
-        <label for="runtime">Runtime less than*:</label> 
+        <label for="runtime">Runtime less than:</label> 
         <select id="runtime" name="runtime">
             <option value="500" selected="selected">-</option>
             <option value="180">3 hours</option>
@@ -154,8 +154,7 @@
             <option value="release_date.asc">Oldest</option>  
             <option value="vote_count.desc">Most scored</option>                       
             <option value="vote_count.asc">Least scored</option>                                           
-        </select>
-        <p>*Please doublecheck movie runtimes, as some movies have incorrect runtimes assigned to them.</p>
+        </select>        
         
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
