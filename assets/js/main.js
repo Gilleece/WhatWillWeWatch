@@ -2,7 +2,7 @@
 
 const tmdbApi = "b11a13a3abf2339dc3e37bef3ec05d32";
 
-// Genre
+// Genre List
 
 let genreList = {
     28 : "Action",
@@ -28,14 +28,9 @@ let genreList = {
 
 // Send Request Function
 
-function baseUrlGenerator() {
-
-};
-
-function sendPreferences(preferencesForm) { 
+function sendPreferences() { 
 
     let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.lte=${decadeTo.value}&primary_release_date.gte=${decadeFrom.value}&with_runtime.gte=60&include_adult=false&include_video=false&page=1`;
-    // Below are options that can't have a default value (hence are not in the base URL)
     let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`; 
@@ -49,6 +44,7 @@ function sendPreferences(preferencesForm) {
             alert("When choosing to search by decade, 'from' must be lower than 'to'");
             return console.log("Error: Decade from higher than decade to");
             }; 
+            getMovieIDs(response);
             let recommendations = response;
             $("#recommendationBox").html(recommendationList(recommendations));
             console.log(response);
@@ -64,6 +60,14 @@ function sendPreferences(preferencesForm) {
     };
 
 // Other Functions
+
+function getMovieIDs(list) {
+    movieIDs = [];
+    for (i = 0; i < list.results.length; i++){
+        movieIDs.push(list.results[i].id);
+    }
+    console.log(movieIDs);
+};
 
 function preferencesURL (base, gen1, gen2, gen3, cert) {
         let urlCombination = base + gen1;
@@ -107,3 +111,4 @@ function recommendationList(result) {
     };
     return list;
 };
+
