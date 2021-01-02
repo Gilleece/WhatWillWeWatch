@@ -30,24 +30,22 @@ let genreList = {
 
 function sendPreferences() { 
 
-    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.lte=${decadeTo.value}&primary_release_date.gte=${decadeFrom.value}&with_runtime.gte=60&include_adult=false&include_video=false&page=1`;
+    let baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.lte=${decadeTo.value}&primary_release_date.gte=${decadeFrom.value}&with_runtime.gte=60&include_adult=false&include_video=false&page=1`;
     let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`; 
     let certification = `&certification_country=US&certification=${ageRating.value}`  
 
     $.when(
-        $.getJSON(preferencesURL(baseURL, userGenre1, userGenre2, userGenre3, certification))
+        $.getJSON(preferencesURL(baseUrl, userGenre1, userGenre2, userGenre3, certification))
     ).then(               
         function(response) {
             if(`${decadeFrom.value}` >= `${decadeTo.value}`) {
             alert("When choosing to search by decade, 'from' must be lower than 'to'");
             return console.log("Error: Decade from higher than decade to");
-            }; 
-            getMovieIDs(response);
+            };             
             let recommendations = response;
-            $("#recommendationBox").html(recommendationList(recommendations));
-            console.log(response);
+            $("#recommendationBox").html(recommendationList(recommendations, getMovieIdList(recommendations)));            
         }, function(errorResponse) {
             if (errorResponse.status === 404) {
                 $("#recommendationBox").html(`<h2>Oh no, it seems like we can't connect... Please try again!</h2>`);
@@ -61,12 +59,24 @@ function sendPreferences() {
 
 // Other Functions
 
-function getMovieIDs(list) {
-    movieIDs = [];
+function getMovieIdList(list) {
+    movieIds = [];
     for (i = 0; i < list.results.length; i++){
-        movieIDs.push(list.results[i].id);
+        movieIds.push(list.results[i].id);
     }
-    console.log(movieIDs);
+    return movieIds;    
+};
+
+function getMoreMovieDetails(id, numerator){
+    let idUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbApi}&language=en-US`        
+    $.when(
+        $.getJSON(idUrl)
+    ).then(               
+        function(detailsResponse) {
+            //use jquery to populate divs by numeration in here
+        }
+    )
+    
 };
 
 function preferencesURL (base, gen1, gen2, gen3, cert) {
@@ -87,14 +97,14 @@ function preferencesURL (base, gen1, gen2, gen3, cert) {
         return urlCombination;
     };
 
-function recommendationList(result) {
-    //placeholder as string, later push to divs using jQuery. ie: for loop... divID+numerator = result
-    
+function recommendationList(result, idList) {
+    //placeholder as string, later push to divs using jQuery. ie: for loop... divID+numerator = result    
     let list = "";    
     if (result.total_results == 0) {
-        return `<h2>Sorry, we found no movies that match your search settings... :(</h2>`;
+        return `<h2>Sorry, we found no movies that match your search settings. :(</h2>`;
     };
     for (i=0; i<result.results.length; i++){
+        
         list += 
         //title 
         `<h2>${result.results[i].title}</h2><br>`
@@ -108,6 +118,9 @@ function recommendationList(result) {
                 list += `${genreList[result.results[i].genre_ids[j]]},`
                 } else { list += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
             }
+        //Get more details by using the Movie ID        
+        getMoreMovieDetails(idList[i], i);        
+
     };
     return list;
 };
