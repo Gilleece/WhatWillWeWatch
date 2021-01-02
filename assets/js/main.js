@@ -34,7 +34,7 @@ function baseUrlGenerator() {
 
 function sendPreferences(preferencesForm) { 
 
-    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.gte=${decadeFrom.value}&primary_release_date.lte=${decadeTo.value}&with_runtime.gte=30&include_adult=false&include_video=false&page=1`;
+    let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.lte=${decadeTo.value}&primary_release_date.gte=${decadeFrom.value}&with_runtime.gte=30&include_adult=false&include_video=false&page=1`;
     // Below are options that can't have a default value (hence are not in the base URL)
     let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
@@ -63,9 +63,10 @@ function sendPreferences(preferencesForm) {
         $.getJSON(preferencesURL(baseURL, userGenre1, userGenre2, userGenre3, certification))
     ).then(               
         function(response) {
-            //if(`${decadeFrom.value}` > `${decadeTo.value}`) {
-            //alert("When choosing to search by decade, 'from' must be lower than 'to'");
-            //}; 
+            if(`${decadeFrom.value}` >= `${decadeTo.value}`) {
+            alert("When choosing to search by decade, 'from' must be lower than 'to'");
+            return console.log("Error: Decade from higher than decade to");
+            }; 
             let recommendations = response;
             $("#recommendationBox").html(recommendationList(recommendations));
             console.log(response);
