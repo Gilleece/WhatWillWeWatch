@@ -41,24 +41,6 @@ function sendPreferences(preferencesForm) {
     let userGenre3 = `%2C${genre3.value}`; 
     let certification = `&certification_country=US&certification=${ageRating.value}`  
 
-    function preferencesURL (base, gen1, gen2, gen3, cert) {
-        let urlCombination = base + gen1;
-        //checks for option genre 2 and 3        
-        if (gen2 && gen3 != "%2Cnone") {
-            urlCombination += gen2 + gen3;
-        } else if (gen2 != "%2Cnone" && gen3 === "%2Cnone") {
-            urlCombination += gen2;
-        } else if (gen3 != "%2Cnone" && gen2 === "%2Cnone") {
-            urlCombination += gen3;
-        };
-        // Checks for age rating selection
-        if (`${ageRating.value}` != "all"){
-            urlCombination += cert;
-        }
-        // Returns complete URL
-        return urlCombination;
-    };
-
     $.when(
         $.getJSON(preferencesURL(baseURL, userGenre1, userGenre2, userGenre3, certification))
     ).then(               
@@ -82,6 +64,24 @@ function sendPreferences(preferencesForm) {
     };
 
 // Other Functions
+
+function preferencesURL (base, gen1, gen2, gen3, cert) {
+        let urlCombination = base + gen1;
+        //checks for option genre 2 and 3        
+        if (gen2 && gen3 != "%2Cnone") {
+            urlCombination += gen2 + gen3;
+        } else if (gen2 != "%2Cnone" && gen3 === "%2Cnone") {
+            urlCombination += gen2;
+        } else if (gen3 != "%2Cnone" && gen2 === "%2Cnone") {
+            urlCombination += gen3;
+        };
+        // Checks for age rating selection
+        if (`${ageRating.value}` != "all"){
+            urlCombination += cert;
+        }
+        // Returns complete URL
+        return urlCombination;
+    };
 
 function recommendationList(result) {
     //placeholder as string, later push to divs using jQuery. ie: for loop... divID+numerator = result
