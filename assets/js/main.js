@@ -74,6 +74,8 @@ function getMoreMovieDetails(id, numerator){
     ).then(               
         function(detailsResponse) {
             //use jquery to populate divs by numeration in here
+
+        // poster path: https://image.tmdb.org/t/p/original/POSTER_ID
         }
     )
     
@@ -124,4 +126,21 @@ function recommendationList(result, idList) {
     };
     return list;
 };
+
+
+// Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
+$(document).ready(function() {
+var $videoSrc;  
+$('.video-btn').click(function() {
+    $videoSrc = $(this).data( "src" );
+});  
+$('#myModal').on('shown.bs.modal', function (e) {
+$("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+})
+$('#myModal').on('hide.bs.modal', function (e) {   
+    $("#video").attr('src',$videoSrc); 
+})  
+});
+
+
 
