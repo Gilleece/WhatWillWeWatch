@@ -4,6 +4,10 @@ div:empty {
    display: none;
 }
 
+.score-text {
+    font-size: 200%;
+}
+
 /* Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)*/
 body {margin:2rem;}
 
