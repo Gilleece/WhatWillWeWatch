@@ -170,12 +170,25 @@
                     <h4 id="movieTitle1" class="card-title text-center">The Lord Of the Rings: The Two Towers</h4>
                 </div>
                 <img id="poster1" class="card-img-top" src="assets/images/lotrTEST.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">SCORE: <span id="score1">7.5</span></h5>
+                <div class="card-body mx-auto">
+                    <button id="trailerButton1" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal">
+                        <span id="trailerButtonText1">Play Trailer</span>
+                    </button>                                        
+                </div>
+                <div class="card-body pt-0">
+                    <h5 class="card-title">SCORE: <span id="score1" class="score-text">7.5</span></h5>
                     <h6 class="card-subtitle mb-2 text-muted">Based on <span id="scoreCount1">8865</span> votes</h6>
-                    <button type="button" class="btn btn-primary video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal">
-                        Play Trailer
-                    </button>
+                    <h6 class="card-subtitle pt-1 pb-1">Genre: <span id="genreText1">Fantasy, Action, Very hecking good</span></h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Summary:</strong>"<span id="summaryText1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>"</li>
+                        <li class="list-group-item"><strong>Watch on: </strong><span id="whereWatch1">Netflix</span></li>
+                        <li class="list-group-item">
+                            Language: <span id="languageText1"><em>English</em></span><br>
+                            Runtime: <span id="runtimeText1"><em>128</em></span>mins<br> 
+                            Release date: <span id="releaseText1"><em>10/10/2001</em></span><br> 
+                            Budget: <span id="budgetText1"><em>70000000</em></span>USD
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div id="recommendation2" class="card col-lg-3"></div>
