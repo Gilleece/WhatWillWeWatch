@@ -158,8 +158,49 @@
             <option value="release_date.asc">Oldest</option>  
             <option value="vote_count.desc">Most scored</option>                       
             <option value="vote_count.asc">Least scored</option>                                           
-        </select>        
-        
+        </select> 
+        <br>
+        <label for="country">Your location*:</label>
+        <select id="country" name="country">
+            <option value="IE" selected="selected">Ireland</option>
+            <option value="AR">Argentina</option>
+            <option value="AT">Austria</option>
+            <option value="AU">Australia</option> 
+            <option value="BE">Belgium</option>                                   
+            <option value="BR">Brazil</option>                                   
+            <option value="CL">Chile</option>             
+            <option value="DK">Denmark</option>
+            <option value="EC">Ecuador</option> 
+            <option value="EE">Estonia</option>
+            <option value="FI">Finland</option>                       
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>            
+            <option value="GR">Greece</option>
+            <option value="HU">Hungary</option> 
+            <option value="IT">Italy</option>             
+            <option value="LT">Lithuania</option>                       
+            <option value="LV">Latvia</option>   
+            <option value="MX">Mexico</option>                                   
+            <option value="NL">Netherlands</option> 
+            <option value="NO">Norway</option>                       
+            <option value="NZ">New Zealand</option>
+            <option value="PE">Peru</option>                                   
+            <option value="PH">Philippines</option> 
+            <option value="PL">Poland</option>                       
+            <option value="PT">Portugal</option>
+            <option value="RO">Romania</option>
+            <option value="ZA">South Africa</option>                                 
+            <option value="KR">South Korea</option> 
+            <option value="ES">Spain</option>                                   
+            <option value="SE">Sweden</option>
+            <option value="CH">Switzerland</option>  
+            <option value="TR">Turkey</option> 
+            <option value="GB">UK</option>                      
+            <option value="US">USA</option>     
+            <option value="VE">Venezuela</option>                                             
+        </select>  
+        <br><span class="disclaimer-text">*So we can show you where movies are available. We don't save or share any data!</span>      
+        <br>
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
 
