@@ -112,8 +112,7 @@ function recommendationList(result, idList) {
     $("#score" + i).html(`${result.results[i].vote_average}`);
     $("#scoreCount" + i).html(`${result.results[i].vote_count}`);        
     $("#genreText" + i).html(getGenreList(result));
-     
-    //+`<h4>Summary:</h4><p>${result.results[i].overview}</p>
+    $("#summaryText" + i).html(`${result.results[i].overview}`);    
     //<br><h4>Genres:</h4><p>`
     
     //summary
