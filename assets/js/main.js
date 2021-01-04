@@ -99,32 +99,30 @@ function preferencesURL (base, gen1, gen2, gen3, cert) {
         return urlCombination;
     };
 
-function recommendationList(result, idList) {
-    //placeholder as string, later push to divs using jQuery. ie: for loop... divID+numerator = result    
-    //let list = "";    
+function recommendationList(result, idList) {        
     if (result.total_results == 0) {
         return `<h2>Sorry, we found no movies that match your search settings. :(</h2>`;
     };
     for (i=0; i<result.results.length; i++){ 
-        console.log(result);       
-        $("#movieTitle" + i).html(`${result.results[i].title}`);
-        $("#poster" + i).attr("src",`https://image.tmdb.org/t/p/w300/${result.results[i].poster_path}`);
-        getMovieTrailerKey(i, result);
-        
-        //Scoring
-        //+`<h4>Summary:</h4><p>${result.results[i].overview}</p><br><h4>Genres:</h4><p>`
-        
-        //summary
-        //+`<h4>Average score:</h4><h3>${result.results[i].vote_average}</h3><h4>Score count: ${result.results[i].vote_count}</h4>`
-        
-        //genre list
-        //for (j=0; j<result.results[i].genre_ids.length; j++) {
-        //    if (j != result.results[i].genre_ids.length-1) {
-        //        list += `${genreList[result.results[i].genre_ids[j]]},`
-        //        } else { list += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
-        //    }
-        //Get more details by using the Movie ID        
-        getMoreMovieDetails(idList[i], i);        
+
+    console.log(result);       
+    $("#movieTitle" + i).html(`${result.results[i].title}`);
+    $("#poster" + i).attr("src",`https://image.tmdb.org/t/p/w300/${result.results[i].poster_path}`);
+    getMovieTrailerKey(i, result);
+    $("#score" + i).html(`${result.results[i].vote_average}`);
+    $("#scoreCount" + i).html(`${result.results[i].vote_count}`);        
+    $("#genreText" + i).html(getGenreList(result));
+    
+    //+`<h4>Summary:</h4><p>${result.results[i].overview}</p>
+    //<br><h4>Genres:</h4><p>`
+    
+    //summary
+    //+`<h4>Average score:</h4><h3>${result.results[i].vote_average}</h3><h4>Score count: ${result.results[i].vote_count}</h4>`
+    
+    //genre list
+    
+    //Get more details by using the Movie ID        
+    getMoreMovieDetails(idList[i], i);        
 
     };
     return list;
@@ -141,6 +139,15 @@ function getMovieTrailerKey(i, result) {
         }
     )
     
+};
+
+function getGenreList(result) {
+    let genreListResult = "";
+        for (j=0; j<result.results[i].genre_ids.length; j++) {
+            if (j != result.results[i].genre_ids.length-1) {
+                genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
+                } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
+            } return genreListResult;
 };
 
 
