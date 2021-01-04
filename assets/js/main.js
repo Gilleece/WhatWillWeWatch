@@ -106,25 +106,20 @@ function recommendationList(result, idList) {
     for (i=0; i<result.results.length; i++){ 
 
     console.log(result);       
+    
     $("#movieTitle" + i).html(`${result.results[i].title}`);
     $("#poster" + i).attr("src",`https://image.tmdb.org/t/p/w300/${result.results[i].poster_path}`);
     getMovieTrailerKey(i, result);
     $("#score" + i).html(`${result.results[i].vote_average}`);
     $("#scoreCount" + i).html(`${result.results[i].vote_count}`);        
-    $("#genreText" + i).html(getGenreList(result));
-    $("#summaryText" + i).html(`${result.results[i].overview}`);    
-    //<br><h4>Genres:</h4><p>`
-    
-    //summary
-    //+`<h4>Average score:</h4><h3>${result.results[i].vote_average}</h3><h4>Score count: ${result.results[i].vote_count}</h4>`
-    
-    //genre list
-    
+    $("#genreText" + i).html(getGenreList(result, i));
+    $("#summaryText" + i).html(`${result.results[i].overview}`);
+    //getWhereToStream(result, i);
+    //getWhereToRent(result, i);    
     //Get more details by using the Movie ID        
     getMoreMovieDetails(idList[i], i);        
 
-    };
-    return list;
+    };    
 };
 
 function getMovieTrailerKey(i, result) {    
@@ -132,15 +127,14 @@ function getMovieTrailerKey(i, result) {
     $.when(
         $.getJSON(trailerCall)
     ).then(               
-        function(trailerKey) {
-            console.log("Test tickles");
+        function(trailerKey) {            
             $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`)       
         }
     )
     
 };
 
-function getGenreList(result) {
+function getGenreList(result, i) {
     let genreListResult = "";
         for (j=0; j<result.results[i].genre_ids.length; j++) {
             if (j != result.results[i].genre_ids.length-1) {
@@ -149,6 +143,25 @@ function getGenreList(result) {
             } return genreListResult;
 };
 
+function getWhereToStream(result, i) {
+    let streamCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`           
+    $.when(
+        $.getJSON(streamCall)
+    ).then(               
+        function(callResult) {            
+            let streamList = "";
+            for (j=0; j<result.results[i].genre_ids.length; j++) {
+            if (j != result.results[i].genre_ids.length-1) {
+                genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
+                } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
+            } $("#whereStream" + i).html(streamList);
+        }
+    )
+};
+
+function getWhereToRent(result, i) {
+
+};
 
 // Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
 $(document).ready(function() {
