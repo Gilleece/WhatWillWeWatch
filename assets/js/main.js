@@ -103,13 +103,13 @@ function recommendationList(result, idList) {
     if (result.total_results == 0) {
         return `<h2>Sorry, we found no movies that match your search settings. :(</h2>`;
     };
-    for (i=0; i<result.results.length; i++){ 
-
-    console.log(result);       
+    for (x=0; x<20; x++){$(`#recommendation${x}`).html("")};
+    for (i=0; i<result.results.length; i++){          
     
+    generateCardHtml(result, i);
     $("#movieTitle" + i).html(`${result.results[i].title}`);
     $("#poster" + i).attr("src",`https://image.tmdb.org/t/p/w300/${result.results[i].poster_path}`);
-    getMovieTrailerKey(i, result);
+    getMovieTrailerKey(result, i);
     $("#score" + i).html(`${result.results[i].vote_average}`);
     $("#scoreCount" + i).html(`${result.results[i].vote_count}`);        
     $("#genreText" + i).html(getGenreList(result, i));
@@ -117,12 +117,41 @@ function recommendationList(result, idList) {
     //getWhereToStream(result, i);
     //getWhereToRent(result, i);    
     //Get more details by using the Movie ID        
-    getMoreMovieDetails(idList[i], i);        
+    //getMoreMovieDetails(idList[i], i);        
 
     };    
 };
 
-function getMovieTrailerKey(i, result) {    
+function generateCardHtml(result, i){
+    $(`#recommendation${i}`).html(`    
+                <div class="card-header text-center">
+                    <h4 id="movieTitle${i}" class="card-title text-center"></h4>
+                </div>
+                <img id="poster${i}" class="card-img-top" src="" alt="Movie Poster">
+                <div class="card-body mx-auto">
+                    <button id="trailerButton${i}" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal" data-src="" data-target="#myModal">
+                        <span id="trailerButtonText${i}">Play Trailer</span>
+                    </button>                                        
+                </div>
+                <div class="card-body pt-0">
+                    <h5 class="card-title">SCORE: <span id="score${i}" class="score-text"></span></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Based on <span id="scoreCount${i}"></span> votes</h6>
+                    <h6 class="card-subtitle pt-1 pb-1">Genre: <span id="genreText${i}"></span></h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Summary:</strong>"<span id="summaryText${i}"></span>"</li>
+                        <li class="list-group-item"><strong>Stream at: </strong><span id="whereStream${i}"></span><br><strong>Rent at: </strong><span id="whereRent${i}"></span></li>
+                        <li class="list-group-item">
+                            Language: <span id="languageText${i}"></span><br>
+                            Runtime: <span id="runtimeText${i}"></span>mins<br> 
+                            Release date: <span id="releaseText${i}"></span><br> 
+                            Budget: <span id="budgetText${i}"></span>USD
+                        </li>
+                    </ul>
+                </div>`
+            );
+        }
+
+function getMovieTrailerKey(result, i) {    
     let trailerCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/videos?api_key=${tmdbApi}&language=en-US`;        
     $.when(
         $.getJSON(trailerCall)
@@ -131,8 +160,22 @@ function getMovieTrailerKey(i, result) {
             $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`)       
         }
     )
+    // Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
+        $(this).ready(function() {
+            var $videoSrc;  
+            $('.video-btn').click(function() {
+                $videoSrc = $(this).data( "src" );
+            });  
+            $('#myModal').on('shown.bs.modal', function (e) {
+            $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+            })
+            $('#myModal').on('hide.bs.modal', function (e) {   
+                $("#video").attr('src',$videoSrc); 
+            })  
+        });
+    // End of youtube trailer button code.
+    };
     
-};
 
 function getGenreList(result, i) {
     let genreListResult = "";
@@ -163,19 +206,8 @@ function getWhereToRent(result, i) {
 
 };
 
-// Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
-$(document).ready(function() {
-var $videoSrc;  
-$('.video-btn').click(function() {
-    $videoSrc = $(this).data( "src" );
-});  
-$('#myModal').on('shown.bs.modal', function (e) {
-$("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
-})
-$('#myModal').on('hide.bs.modal', function (e) {   
-    $("#video").attr('src',$videoSrc); 
-})  
-});
+
+
 
 
 
