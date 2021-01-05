@@ -81,7 +81,8 @@ function preferencesURL (base, gen1, gen2, gen3, cert) {
 
 function recommendationList(result, idList) {        
     if (result.total_results == 0) {
-        return `<h2>Sorry, we found no movies that match your search settings. :(</h2>`;
+        $(`#recommendationRow`).html(`<h2>Sorry, we found no movies that match your search settings. :(</h2>`);
+        return;
     };    
     for (x=0; x<21; x++){$(`#recommendation${x}`).html("")};
     for (i=0; i<result.results.length; i++){          
@@ -182,14 +183,20 @@ function getWhereToStream(result, i) {
     ).then(               
         function(callResult) {            
             let streamList = "";
-            let userCountry = `${country.value}`;  
-            $("#whereStream" + i).html("None");            
-            if (!callResult.results[userCountry].flatrate){                
-                $("#whereStream" + i).html("None");                                
-            } else {           
-                for (j=0; j<callResult.results[userCountry].flatrate.length; j++) {
-                 streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name} `;
-                } $("#whereStream" + i).html(streamList);
+            let userCountry = `${country.value}`;
+            // Checks if the data returned has the user's country as an option, if not then the text "none" is displayed          
+            if (!callResult.results[userCountry]){
+               $("#whereStream" + i).html("None"); 
+            } else {
+                // Checks if the data returned for the user's country has "flatrate", if not then the text "none" is displayed   
+                if (!callResult.results[userCountry].hasOwnProperty("flatrate")){                
+                    $("#whereStream" + i).html("None");                                
+                } else {  
+                    //Makes a list of where the movie can be streamed in the selected country          
+                    for (j=0; j<callResult.results[userCountry].flatrate.length; j++) {
+                    streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name} `;
+                    } $("#whereStream" + i).html(streamList);
+                }
             }
         }
     )
@@ -204,14 +211,20 @@ function getWhereToRent(result, i) {
     ).then(               
         function(callResult) {            
             let rentList = "";
-            let userCountry = `${country.value}`;  
-            $("#whereRent" + i).html("None");            
-            if (!callResult.results[userCountry].rent){                
-                $("#whereRent" + i).html("None");                                
-            } else {           
-                for (j=0; j<callResult.results[userCountry].rent.length; j++) {
-                 rentList += `<br>${callResult.results[userCountry].rent[j].provider_name} `;
-                } $("#whereRent" + i).html(rentList);
+            let userCountry = `${country.value}`;
+            // Checks if the data returned has the user's country as an option, if not then the text "none" is displayed 
+            if (!callResult.results[userCountry]){
+               $("#whereRent" + i).html("None"); 
+            } else {
+                // Checks if the data returned for the user's country has "rent", if not then the text "none" is displayed
+                if (!callResult.results[userCountry].hasOwnProperty("rent")){                
+                    $("#whereRent" + i).html("None");                                
+                } else {
+                    //Makes a list of where the movie can be rented in the selected country           
+                    for (j=0; j<callResult.results[userCountry].rent.length; j++) {
+                    rentList += `<br>${callResult.results[userCountry].rent[j].provider_name} `;
+                    } $("#whereRent" + i).html(rentList);
+                }
             }
         }
     )
