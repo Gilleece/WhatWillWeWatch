@@ -1,14 +1,14 @@
-/* Search form */
-
-.disclaimer-text {    
-    font-size: 50%;
-};
-
-/* Recommendation list and cards */
-
 div:empty {
    display: none;
 }
+
+/* Search form */
+
+.disclaimer-text {    
+    font-size: 75%;
+};
+
+/* Recommendation list and cards */
 
 .score-text {
     font-size: 200%;
