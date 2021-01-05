@@ -123,7 +123,7 @@ function generateCardHtml(result, i){
                             Original Language: <span id="languageText${i}"></span><br>
                             Runtime: <span id="runtimeText${i}"></span> mins<br> 
                             Release date: <span id="releaseText${i}"></span><br> 
-                            Budget: <span id="budgetText${i}"></span>USD
+                            Budget: <span id="budgetText${i}"></span>
                         </li>
                     </ul>
                 </div>`
@@ -233,7 +233,12 @@ function getMoreMovieDetails(id, i){
         function(detailsResponse,) {            
             $("#languageText" + i).html(detailsResponse.original_language.toUpperCase()); 
             $("#runtimeText" + i).html(detailsResponse.runtime);    
-            $("#releaseText" + i).html(detailsResponse.release_date);   
+            $("#releaseText" + i).html(detailsResponse.release_date);
+            if (detailsResponse.budget == 0){
+                $("#budgetText" + i).html(`Unavailable`);    
+            }  else {
+                $("#budgetText" + i).html(`${detailsResponse.budget.toLocaleString()} USD`); 
+            }             
         }
     )
     
