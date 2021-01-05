@@ -121,7 +121,7 @@ function generateCardHtml(result, i){
                         <li class="list-group-item"><strong>Stream at: </strong><span id="whereStream${i}"></span><br><strong>Rent at: </strong><span id="whereRent${i}"></span></li>
                         <li class="list-group-item">
                             Original Language: <span id="languageText${i}"></span><br>
-                            Runtime: <span id="runtimeText${i}"></span>mins<br> 
+                            Runtime: <span id="runtimeText${i}"></span> mins<br> 
                             Release date: <span id="releaseText${i}"></span><br> 
                             Budget: <span id="budgetText${i}"></span>USD
                         </li>
@@ -231,7 +231,8 @@ function getMoreMovieDetails(id, i){
         $.getJSON(idUrl)
     ).then(               
         function(detailsResponse,) {            
-            $("#languageText" + i).html(detailsResponse.original_language.toUpperCase());        
+            $("#languageText" + i).html(detailsResponse.original_language.toUpperCase()); 
+            $("#runtimeText" + i).html(detailsResponse.runtime);       
         }
     )
     
