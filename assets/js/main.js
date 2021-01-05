@@ -143,8 +143,10 @@ function getMovieTrailerKey(result, i) {
     $.when(
         $.getJSON(trailerCall)
     ).then(               
-        function(trailerKey) {            
-            $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`)       
+        function(trailerKey) { 
+            if (trailerKey.results.length > 0) {           
+            $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`)  
+            }     
         }
     )
     // Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
