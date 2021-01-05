@@ -115,7 +115,7 @@ function recommendationList(result, idList) {
     $("#genreText" + i).html(getGenreList(result, i));
     $("#summaryText" + i).html(`${result.results[i].overview}`);
     getWhereToStream(result, i);
-    //getWhereToRent(result, i);    
+    getWhereToRent(result, i);    
     //Get more details by using the Movie ID        
     //getMoreMovieDetails(idList[i], i);        
 
@@ -207,7 +207,23 @@ function getWhereToStream(result, i) {
 };
 
 function getWhereToRent(result, i) {
-
+    let rentCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`           
+    $.when(
+        $.getJSON(rentCall)
+    ).then(               
+        function(callResult) {            
+            let rentList = "";
+            let userCountry = `${country.value}`;  
+            $("#whereRent" + i).html("None");            
+            if (!callResult.results[userCountry].rent){                
+                $("#whereRent" + i).html("None");                                
+            } else {           
+                for (j=0; j<callResult.results[userCountry].rent.length; j++) {
+                 rentList += `<br>${callResult.results[userCountry].rent[j].provider_name} `;
+                } $("#whereRent" + i).html(rentList);
+            }
+        }
+    )
 };
 
 
