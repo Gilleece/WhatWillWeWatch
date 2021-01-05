@@ -50,10 +50,10 @@ function sendPreferences() {
             $("#recommendationBox").html(recommendationList(recommendations, getMovieIdList(recommendations)));            
         }, function(errorResponse) {
             if (errorResponse.status === 404) {
-                $("#recommendationBox").html(`<h2>Oh no, it seems like we can't connect... Please try again!</h2>`);
+                $("#recommendationRow").html(`<h2>Oh no, it seems like we can't connect... Please try again!</h2>`);
             } else {
                 console.log(errorResponse);
-                $("#recommendationBox").html(`<h2>Error: ${errorResponse.responseJSON.status_message}</h2>`);
+                $("#recommendationRow").html(`<h2>Error: ${errorResponse.responseJSON.status_message}</h2>`);
             }
         }
     )
