@@ -147,19 +147,7 @@
             <option value="180">3 hours</option>
             <option value="150">2.5 hours</option>
             <option value="120">2 hours</option>                                  
-        </select>
-        <label for="sortBy">Sort by:</label>
-        <select id="sortBy" name="sortBy">
-            <option value="popularity.desc" selected="selected">Most Popular</option>
-            <option value="popularity.asc">Least Popular</option>
-            <option value="vote_average.desc">Highest Score</option>
-            <option value="vote_average.asc">Lowest Score</option>  
-            <option value="release_date.desc">Newest</option>                                   
-            <option value="release_date.asc">Oldest</option>  
-            <option value="vote_count.desc">Most scored</option>                       
-            <option value="vote_count.asc">Least scored</option>                                           
-        </select> 
-        <br>
+        </select>        
         <label for="country">Your location*:</label>
         <select id="country" name="country">
             <option value="IE" selected="selected">Ireland</option>
@@ -198,7 +186,19 @@
             <option value="GB">UK</option>                      
             <option value="US">USA</option>     
             <option value="VE">Venezuela</option>                                             
-        </select>  
+        </select>
+        <br>
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy" name="sortBy">
+            <option value="popularity.desc" selected="selected">Most Popular</option>
+            <option value="popularity.asc">Least Popular</option>
+            <option value="vote_average.desc">Highest Score</option>
+            <option value="vote_average.asc">Lowest Score</option>  
+            <option value="release_date.desc">Newest</option>                                   
+            <option value="release_date.asc">Oldest</option>  
+            <option value="vote_count.desc">Most scored</option>                       
+            <option value="vote_count.asc">Least scored</option>                                           
+        </select>           
         <br><span class="disclaimer-text">*So we can show you where movies are available. We don't save or share any data!</span>      
         <br>
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
