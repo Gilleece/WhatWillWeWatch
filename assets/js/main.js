@@ -1,4 +1,4 @@
-// Api Keys (Hiding the key for this API is not really possible, or necessary due to the free/unlimited nature of it. More info here: https://www.themoviedb.org/talk/582744abc3a3683601019dcc?language=en-IE)
+// Api Keys (Hiding the key for this API is not really possible, or necessary, due to the free/unlimited nature of it. More info here from the API creator: https://www.themoviedb.org/talk/582744abc3a3683601019dcc?language=en-IE)
 
 const tmdbApi = "b11a13a3abf2339dc3e37bef3ec05d32";
 
@@ -26,7 +26,7 @@ let genreList = {
     37 : "Western"
     }
 
-// Send Request Function
+// Send Request Function - This is the function attached to the send button on the form
 
 function sendPreferences() { 
 
@@ -57,29 +57,7 @@ function sendPreferences() {
     )
     };
 
-// Other Functions
-
-function getMovieIdList(list) {
-    movieIds = [];
-    for (i = 0; i < list.results.length; i++){
-        movieIds.push(list.results[i].id);
-    }
-    return movieIds;    
-};
-
-function getMoreMovieDetails(id, numerator){
-    let idUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbApi}&language=en-US`        
-    $.when(
-        $.getJSON(idUrl)
-    ).then(               
-        function(detailsResponse) {
-            //use jquery to populate divs by numeration in here
-
-        
-        }
-    )
-    
-};
+// This is the primary function that handles the generation of the recommendation list
 
 function preferencesURL (base, gen1, gen2, gen3, cert) {
         let urlCombination = base + gen1;
@@ -102,8 +80,7 @@ function preferencesURL (base, gen1, gen2, gen3, cert) {
 function recommendationList(result, idList) {        
     if (result.total_results == 0) {
         return `<h2>Sorry, we found no movies that match your search settings. :(</h2>`;
-    };
-    console.log(result.results.length);
+    };    
     for (x=0; x<21; x++){$(`#recommendation${x}`).html("")};
     for (i=0; i<result.results.length; i++){          
     
@@ -116,12 +93,13 @@ function recommendationList(result, idList) {
     $("#genreText" + i).html(getGenreList(result, i));
     $("#summaryText" + i).html(`${result.results[i].overview}`);
     getWhereToStream(result, i);
-    getWhereToRent(result, i);    
-    //Get more details by using the Movie ID        
-    //getMoreMovieDetails(idList[i], i);        
+    getWhereToRent(result, i);            
+    getMoreMovieDetails(result.results[i].id, i);        
 
     };    
 };
+
+// This function contains, and generates, the HTML for each recommendation card
 
 function generateCardHtml(result, i){
     $(`#recommendation${i}`).html(`    
@@ -142,7 +120,7 @@ function generateCardHtml(result, i){
                         <li class="list-group-item"><strong>Summary:</strong>"<span id="summaryText${i}"></span>"</li>
                         <li class="list-group-item"><strong>Stream at: </strong><span id="whereStream${i}"></span><br><strong>Rent at: </strong><span id="whereRent${i}"></span></li>
                         <li class="list-group-item">
-                            Language: <span id="languageText${i}"></span><br>
+                            Original Language: <span id="languageText${i}"></span><br>
                             Runtime: <span id="runtimeText${i}"></span>mins<br> 
                             Release date: <span id="releaseText${i}"></span><br> 
                             Budget: <span id="budgetText${i}"></span>USD
@@ -150,7 +128,10 @@ function generateCardHtml(result, i){
                     </ul>
                 </div>`
             );
+            
         }
+
+// This function returns a youtube link for the "Play trailer" button, it also handles some of the functionality of each play trailer button itself
 
 function getMovieTrailerKey(result, i) {    
     let trailerCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/videos?api_key=${tmdbApi}&language=en-US`;        
@@ -177,6 +158,7 @@ function getMovieTrailerKey(result, i) {
     // End of youtube trailer button code.
     };
     
+// This generates the list of genres, along with formatting, to be put into the recommendation card
 
 function getGenreList(result, i) {
     let genreListResult = "";
@@ -186,6 +168,8 @@ function getGenreList(result, i) {
                 } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
             } return genreListResult;
 };
+
+// This takes the user's location input and returns a list of services that the movie can be streamed from
 
 function getWhereToStream(result, i) {
     let streamCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`           
@@ -207,6 +191,8 @@ function getWhereToStream(result, i) {
     )
 };
 
+// This takes the user's location input and returns a list of services that the movie can be rented from
+
 function getWhereToRent(result, i) {
     let rentCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`           
     $.when(
@@ -227,6 +213,29 @@ function getWhereToRent(result, i) {
     )
 };
 
+// Creates an array of movieIDs for use in other functions  
+
+function getMovieIdList(list) {
+    movieIds = [];
+    for (i = 0; i < list.results.length; i++){
+        movieIds.push(list.results[i].id);
+    }
+    return movieIds;    
+};
+
+// Uses the Movie ID to call the API for additional details that aren't returned in the intial call
+
+function getMoreMovieDetails(id, i){       
+    let idUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbApi}&language=en-US`        
+    $.when(
+        $.getJSON(idUrl)
+    ).then(               
+        function(detailsResponse,) {            
+            $("#languageText" + i).html(detailsResponse.original_language.toUpperCase());        
+        }
+    )
+    
+};
 
 
 
