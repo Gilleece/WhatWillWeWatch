@@ -103,7 +103,8 @@ function recommendationList(result, idList) {
     if (result.total_results == 0) {
         return `<h2>Sorry, we found no movies that match your search settings. :(</h2>`;
     };
-    for (x=0; x<20; x++){$(`#recommendation${x}`).html("")};
+    console.log(result.results.length);
+    for (x=0; x<21; x++){$(`#recommendation${x}`).html("")};
     for (i=0; i<result.results.length; i++){          
     
     generateCardHtml(result, i);
