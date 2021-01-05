@@ -34,7 +34,9 @@ function sendPreferences() {
     let userGenre1 = `&with_genres=${genre.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`; 
-    let certification = `&certification_country=US&certification=${ageRating.value}`  
+    let certification = `&certification_country=US&certification=${ageRating.value}`
+    //Makes sure recommendationRow is clear to stop previous searches holding over, or having unpopulated cards
+    $(`#recommendationRow`).html("");  
 
     $.when(
         $.getJSON(preferencesURL(baseUrl, userGenre1, userGenre2, userGenre3, certification))
@@ -101,8 +103,9 @@ function recommendationList(result, idList) {
 
 // This function contains, and generates, the HTML for each recommendation card
 
-function generateCardHtml(result, i){
-    $(`#recommendation${i}`).html(`    
+function generateCardHtml(result, i){    
+    $(`#recommendationRow`).append(` 
+            <div id="recommendation${i}" class="card col-lg-3">   
                 <div class="card-header text-center">
                     <h4 id="movieTitle${i}" class="card-title text-center"></h4>
                 </div>
@@ -126,7 +129,8 @@ function generateCardHtml(result, i){
                             Budget: <span id="budgetText${i}"></span>
                         </li>
                     </ul>
-                </div>`
+                </div>
+            </div>`
             );
             
         }
