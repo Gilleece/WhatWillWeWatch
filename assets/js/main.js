@@ -114,7 +114,7 @@ function recommendationList(result, idList) {
     $("#scoreCount" + i).html(`${result.results[i].vote_count}`);        
     $("#genreText" + i).html(getGenreList(result, i));
     $("#summaryText" + i).html(`${result.results[i].overview}`);
-    //getWhereToStream(result, i);
+    getWhereToStream(result, i);
     //getWhereToRent(result, i);    
     //Get more details by using the Movie ID        
     //getMoreMovieDetails(idList[i], i);        
@@ -193,11 +193,15 @@ function getWhereToStream(result, i) {
     ).then(               
         function(callResult) {            
             let streamList = "";
-            for (j=0; j<result.results[i].genre_ids.length; j++) {
-            if (j != result.results[i].genre_ids.length-1) {
-                genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
-                } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
-            } $("#whereStream" + i).html(streamList);
+            let userCountry = `${country.value}`;  
+            $("#whereStream" + i).html("None");            
+            if (!callResult.results[userCountry].flatrate){                
+                $("#whereStream" + i).html("None");                                
+            } else {           
+                for (j=0; j<callResult.results[userCountry].flatrate.length; j++) {
+                 streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name} `;
+                } $("#whereStream" + i).html(streamList);
+            }
         }
     )
 };
