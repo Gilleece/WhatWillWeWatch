@@ -144,7 +144,13 @@ function getMovieTrailerKey(result, i) {
         $.getJSON(trailerCall)
     ).then(               
         function(trailerKey) { 
-            if (trailerKey.results.length > 0) {           
+            //If no trailer is available then "Play Trailer" button is removed.
+            if (trailerKey.results.length === 0) {
+                $("#trailerButton" + i).html();
+                return;
+            }
+            //Inserts the trailer youtube URL into the "data-src" of the "Play Trailer" button.
+            else {           
             $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`)  
             }     
         }
