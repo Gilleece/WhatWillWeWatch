@@ -232,7 +232,8 @@ function getMoreMovieDetails(id, i){
     ).then(               
         function(detailsResponse,) {            
             $("#languageText" + i).html(detailsResponse.original_language.toUpperCase()); 
-            $("#runtimeText" + i).html(detailsResponse.runtime);       
+            $("#runtimeText" + i).html(detailsResponse.runtime);    
+            $("#releaseText" + i).html(detailsResponse.release_date);   
         }
     )
     
