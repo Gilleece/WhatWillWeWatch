@@ -16,13 +16,14 @@
     <title>What Will We Watch</title>
 </head>
 
-<body>
+<body onload="generateGenreHtml();">
     <!--User Preferences Form-->
     <form id="preferencesForm">
         <div id="genreSelector">
         <label for="genre1">Choose up to 3 genres:</label>
-        <select id="genre1" name="genre1">
-            <option value="28" selected="selected">Action</option>
+        <!--<select id="genre1" name="genre1">
+            <option value="none" selected="selected">-</option>
+            <option value="28">Action</option>
             <option value="12">Adventure</option>
             <option value="16">Animation</option>
             <option value="35">Comedy</option>
@@ -85,7 +86,7 @@
             <option value="53">Thriller</option>
             <option value="10752">War</option>
             <option value="37">Western</option>
-        </select>
+        </select>-->
         </div>
         <br>
         <label for="minScore">Minimum score:</label>
