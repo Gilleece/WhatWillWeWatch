@@ -23,7 +23,7 @@ function sendPreferences() {
             };
             // Handle Success.             
             let recommendations = response;
-            $("#recommendationBox").html(recommendationList(recommendations, getMovieIdList(recommendations)));
+            $("#recommendationBox").html(recommendationList(recommendations));
         },
         // Handle error
         function (errorResponse) {
