@@ -19,7 +19,8 @@
 <body>
     <!--User Preferences Form-->
     <form id="preferencesForm">
-        <label for="genre1">Choose one or more genres:</label>
+        <div id="genreSelector">
+        <label for="genre1">Choose up to 3 genres:</label>
         <select id="genre1" name="genre1">
             <option value="28" selected="selected">Action</option>
             <option value="12">Adventure</option>
@@ -85,6 +86,7 @@
             <option value="10752">War</option>
             <option value="37">Western</option>
         </select>
+        </div>
         <br>
         <label for="minScore">Minimum score:</label>
         <select id="minScore" name="minScore">
@@ -152,7 +154,7 @@
             <option value="150">2.5 hours</option>
             <option value="120">2 hours</option>
         </select>
-        <label for="country">Your location*:</label>
+        <label for="country">Show where to watch in:</label>
         <select id="country" name="country">
             <option value="IE" selected="selected">Ireland</option>
             <option value="AR">Argentina</option>
@@ -211,9 +213,7 @@
             <option value="release_date.asc">Oldest</option>
             <option value="vote_count.desc">Most scored</option>
             <option value="vote_count.asc">Least scored</option>
-        </select>
-        <br><span class="disclaimer-text">*So we can show you where movies are available to stream or rent. We don't
-            save or share any data!</span>
+        </select>        
         <br>
         <button type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button>
     </form>
