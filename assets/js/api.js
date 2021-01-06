@@ -6,7 +6,7 @@ API Calls
 function sendPreferences() {
     // Gets some of the user's choices for the initial API call.
     let baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.lte=${decadeTo.value}&primary_release_date.gte=${decadeFrom.value}&with_runtime.gte=60&include_adult=false&include_video=false&page=1`;
-    let userGenre1 = `&with_genres=${genre.value}`;
+    let userGenre1 = `&with_genres=${genre1.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`;
     let certification = `&certification_country=US&certification=${ageRating.value}`
@@ -61,15 +61,17 @@ function getMovieTrailerKey(result, i) {
         $('.video-btn').click(function () {
             $videoSrc = $(this).data("src");
         });
-        $('#myModal').on('shown.bs.modal', function (e) {
+        $('#myModal').on('shown.bs.modal', function () {
             $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
         })
-        $('#myModal').on('hide.bs.modal', function (e) {
+        $('#myModal').on('hide.bs.modal', function () {
             $("#video").attr('src', $videoSrc);
         })
     });
     // End of youtube trailer button code.
 };
+
+
 
 // This API call takes the user's location input and returns a list of services that the movie can be streamed from.
 function getWhereToStream(result, i) {

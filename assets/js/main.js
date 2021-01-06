@@ -3,7 +3,7 @@ HTML Generation and user input handling.
 */
 
 // This function contains, and generates, the HTML for each recommendation card.
-function generateCardHtml(result, i) {
+function generateCardHtml(i) {
     $(`#recommendationRow`).append(` 
             <div id="recommendation${i}" class="card col-lg-3">   
                 <div class="card-header text-center">
@@ -46,7 +46,7 @@ function preferencesURL(base, gen1, gen2, gen3, cert) {
         urlCombination += gen3;
     };
     // Checks for age rating selection
-    if (`${ageRating.value}` != "all") {
+    if (ageRating.value != "all") {
         urlCombination += cert;
     }
     // Returns complete URL
@@ -64,14 +64,14 @@ function recommendationList(result) {
     for (x = 0; x < 21; x++) { $(`#recommendation${x}`).html("") };
     // Most of the HTML in each recommendation card is done here.
     for (i = 0; i < result.results.length; i++) {
-        generateCardHtml(result, i);
-        $("#movieTitle" + i).html(`${result.results[i].title}`);
+        generateCardHtml(i);
+        $("#movieTitle" + i).html(result.results[i].title);
         $("#poster" + i).attr("src", `https://image.tmdb.org/t/p/w300/${result.results[i].poster_path}`);
         getMovieTrailerKey(result, i);
-        $("#score" + i).html(`${result.results[i].vote_average}`);
-        $("#scoreCount" + i).html(`${result.results[i].vote_count}`);
+        $("#score" + i).html(result.results[i].vote_average);
+        $("#scoreCount" + i).html(result.results[i].vote_count);
         $("#genreText" + i).html(getGenreList(result, i));
-        $("#summaryText" + i).html(`${result.results[i].overview}`);
+        $("#summaryText" + i).html(result.results[i].overview);
         getWhereToStream(result, i);
         getWhereToRent(result, i);
         getMoreMovieDetails(result.results[i].id, i);
@@ -87,3 +87,10 @@ function getGenreList(result, i) {
         } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
     } return genreListResult;
 };
+
+
+
+
+
+
+
