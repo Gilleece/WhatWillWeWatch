@@ -54,7 +54,7 @@ function preferencesURL(base, gen1, gen2, gen3, cert) {
 };
 
 // This function handles the bulk of calling other functions to generate the recommendation cards.
-function recommendationList(result, idList) {
+function recommendationList(result) {
     // If no results are found, based on the user's choices.
     if (result.total_results == 0) {
         $(`#recommendationRow`).html(`<h2>Sorry, we found no movies that match your search settings. :(</h2>`);
@@ -87,21 +87,3 @@ function getGenreList(result, i) {
         } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
     } return genreListResult;
 };
-
-// Creates an array of movieIDs for use in other functions  
-function getMovieIdList(list) {
-    movieIds = [];
-    for (i = 0; i < list.results.length; i++) {
-        movieIds.push(list.results[i].id);
-    }
-    return movieIds;
-};
-
-
-
-
-
-
-
-
-
