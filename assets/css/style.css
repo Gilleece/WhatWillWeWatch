@@ -67,19 +67,19 @@ h1 {
 }
 
 .what  {
-  animation-delay: 1s;
+  animation-delay: 0.5s;
 }
 
 .will  {
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .we  {
-  animation-delay: 3s;
+  animation-delay: 1.5s;
 }
 
 .watch  {
-  animation-delay: 4s;
+  animation-delay: 2s;
 }
 
 /* 
@@ -118,7 +118,7 @@ Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/x
 }
 
 /*
-fadeInLeft from https://www.theappguruz.com/tag-tools/web/CSSAnimations/
+fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimations/
 */
 
 .fadeInLeft {
@@ -151,5 +151,42 @@ fadeInLeft from https://www.theappguruz.com/tag-tools/web/CSSAnimations/
   opacity: 1;
   -webkit-transform: none;
   transform: none;
+  }
+  } 
+
+  .pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes pulse {
+  0% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  50% {
+  -webkit-transform: scale3d(1.05, 1.05, 1.05);
+  transform: scale3d(1.05, 1.05, 1.05);
+  }
+  100% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  }
+  @keyframes pulse {
+  0% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  50% {
+  -webkit-transform: scale3d(1.05, 1.05, 1.05);
+  transform: scale3d(1.05, 1.05, 1.05);
+  }
+  100% {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
   }
   } 
