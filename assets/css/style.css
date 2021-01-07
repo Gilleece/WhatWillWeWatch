@@ -32,6 +32,10 @@ Site's primary colours
     color: #0D0D0D;
 }
 
+.recommendation-orange {
+    color: #FAB14D;
+}
+
 /*
 Search form
 */
@@ -103,6 +107,10 @@ Form Div
 /* 
 Recommendation list and cards 
 */
+
+.recommendationBoxStyle {
+    background-color: #FAB14D;
+}
 
 .score-text {
     font-size: 200%;
