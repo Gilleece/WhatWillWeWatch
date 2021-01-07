@@ -64,10 +64,16 @@ h1 {
     font-size: 90px;
     width: 300px;   
     margin: 0 auto;
+    color: #7B84DB;
+}
+
+h1 span {
+    color: #F2F2F2;
 }
 
 .what  {
   animation-delay: 0.5s;
+  
 }
 
 .will  {
@@ -118,14 +124,15 @@ Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/x
 }
 
 /*
-fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimations/
+Animations
 */
 
+/* fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimations/ */
 .fadeInLeft {
   -webkit-animation-name: fadeInLeftBig;
   animation-name: fadeInLeftBig;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   }
@@ -157,8 +164,9 @@ fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimation
   .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 4s;
+  animation-delay: 2.2s;
+  animation-duration: 4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   }
@@ -166,14 +174,10 @@ fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimation
   0% {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-  }
-  50% {
-  -webkit-transform: scale3d(1.05, 1.05, 1.05);
-  transform: scale3d(1.05, 1.05, 1.05);
-  }
+  } 
   100% {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+  -webkit-transform: scale3d(1.25, 1.25, 1.25);
+  transform: scale3d(1.25, 1.25, 1.25);
   }
   }
   @keyframes pulse {
@@ -181,12 +185,8 @@ fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimation
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
   }
-  50% {
-  -webkit-transform: scale3d(1.05, 1.05, 1.05);
-  transform: scale3d(1.05, 1.05, 1.05);
-  }
   100% {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+  -webkit-transform: scale3d(1.25, 1.25, 1.25);
+  transform: scale3d(1.25, 1.25, 1.25);
   }
   } 
