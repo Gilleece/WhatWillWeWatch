@@ -30,10 +30,7 @@ function generateGenreHtml() {
             <option value="37">Western</option>
         </select>
         `);
-    }; 
-    // Makes second and third genre selector disabled on load
-    $("#genre2").attr("disabled", true); 
-    $("#genre3").attr("disabled", true);
+    };   
 }
 
 // This function contains, and generates, the HTML for each recommendation card.
