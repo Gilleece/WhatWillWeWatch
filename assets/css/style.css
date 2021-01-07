@@ -1,20 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+/*
+Hides empty divs
+*/
+
 div:empty {
    display: none;
 }
 
-/* Search form */
+/*
+Site's primary colours
+*/
+
+.main-blue {
+    color: #0A0EF0;
+}
+
+.off-blue {
+    color: #040BDB;
+}
+
+.pale-blue {
+    color: #7B84DB;
+}
+
+.main-white {
+    color: #F2F2F2;
+}
+
+.main-black {
+    color: #0D0D0D;
+}
+
+/*
+Search form
+*/
 
 .disclaimer-text {    
     font-size: 75%;
 };
 
-/* Recommendation list and cards */
+/*
+Landing Div
+*/
+
+body, html {
+    height: 100%;
+}
+
+.landing-div {
+    background-color: #0D0D0D;
+    min-height: 100%;
+    height: 100vh;
+}
+
+.landing-div-content {
+    background-color: #0D0D0D;    
+    color: #F2F2F2;   
+    margin-bottom: 25vh; 
+}
+
+h1 {
+    font-size: 90px;
+    width: 300px;   
+    margin: 0 auto;
+}
+
+.what  {
+  animation-delay: 1s;
+}
+
+.will  {
+  animation-delay: 2s;
+}
+
+.we  {
+  animation-delay: 3s;
+}
+
+.watch  {
+  animation-delay: 4s;
+}
+
+/* 
+Recommendation list and cards 
+*/
 
 .score-text {
     font-size: 200%;
 }
 
-/* Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)*/
+/* 
+Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
+*/
 
 
 .modal-dialog {
@@ -38,3 +116,40 @@ div:empty {
   color:#fff;
   opacity:1;
 }
+
+/*
+fadeInLeft from https://www.theappguruz.com/tag-tools/web/CSSAnimations/
+*/
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInLeftBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInLeftBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
