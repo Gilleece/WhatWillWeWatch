@@ -89,6 +89,14 @@ h1 span {
 }
 
 /* 
+Form Div 
+*/
+
+.formDiv {
+    background-color: #7B84DB;
+}
+
+/* 
 Recommendation list and cards 
 */
 
@@ -122,6 +130,9 @@ Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/x
   color:#fff;
   opacity:1;
 }
+
+
+
 
 /*
 Animations
