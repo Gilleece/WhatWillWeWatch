@@ -21,8 +21,8 @@
     <form id="preferencesForm">
         <div id="genreSelector">
             <label for="genre1">Choose up to 3 genres:</label>
+            <!--generateGenreHtml() dynamically loads the HTML into here for the genre selection-->
         </div>
-        <br>
         <label for="minScore">Minimum score:</label>
         <select id="minScore" name="minScore">
             <option value="0" selected="selected">-</option>
@@ -90,7 +90,9 @@
             <option value="120">2 hours</option>
         </select>
         <label for="country">Streaming from:</label>
-        <select id="country" name="country">
+        <input id="country" type='text' placeholder='Your Country' class='flexdatalist' data-min-length='1' multiple=''
+            data-selection-required='1' list='countryList' name='country'>
+        <datalist id="countryList">
             <option value="IE" selected="selected">Ireland</option>
             <option value="AR">Argentina</option>
             <option value="AT">Austria</option>
@@ -136,7 +138,7 @@
             <option value="GB">UK</option>
             <option value="US">USA</option>
             <option value="VE">Venezuela</option>
-        </select>
+        </datalist>
         <br>
         <label for="sortBy">Sort by:</label>
         <select id="sortBy" name="sortBy">
