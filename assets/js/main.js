@@ -117,7 +117,7 @@ function recommendationList(result) {
 
 // This generates the list of genres, along with formatting, to be put into the recommendation card
 function getGenreList(result, i) {
-    let genreListResult = "";
+    let genreListResult = "";    
     for (j = 0; j < result.results[i].genre_ids.length; j++) {
         if (j != result.results[i].genre_ids.length - 1) {
             genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
