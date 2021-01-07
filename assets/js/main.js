@@ -31,13 +31,14 @@ function generateGenreHtml() {
             <option value="37">Western</option>
         </select>
         `);
-    }; 
+    };
     // Removes the "-" option from genre1 as at least 1 genre is needed.
     $("#defaultValue1").remove();
     // Sets the selected option for genre1 as the first option in the list.
     $("#firstOption1").attr("selected", true);
 
 }
+
 
 // This function contains, and generates, the HTML for each recommendation card.
 function generateCardHtml(i) {
@@ -117,7 +118,7 @@ function recommendationList(result) {
 
 // This generates the list of genres, along with formatting, to be put into the recommendation card
 function getGenreList(result, i) {
-    let genreListResult = "";    
+    let genreListResult = "";
     for (j = 0; j < result.results[i].genre_ids.length; j++) {
         if (j != result.results[i].genre_ids.length - 1) {
             genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
@@ -125,8 +126,23 @@ function getGenreList(result, i) {
     } return genreListResult;
 };
 
+$('.flexdatalist').flexdatalist({
+    selectionRequired: 1,
+    minLength: 1
+});
 
+/*
+Local Storage
+*/
 
+// Saves the country selected (saves as in stores data, not heroic feat of bravery) and recalls upon page load.
+function saveCountry() {
+    $("#country").change(function () {
+        localStorage.setItem('rememberedCountry', this.value);
+    }); if (localStorage.getItem('rememberedCountry')) {
+        $("#country").val(localStorage.getItem('rememberedCountry'));
+    }
+};
 
 
 
