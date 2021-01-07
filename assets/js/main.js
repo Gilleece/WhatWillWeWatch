@@ -5,11 +5,12 @@ HTML Generation and user input handling.
 // This function generates the HTML for the genre selections.
 
 function generateGenreHtml() {
+    // Generates 3 selects for user
     for (i = 1; i < 4; i++) {
         $("#genreSelector").append(`
         <select id="genre${i}" name="genre${i}">
-            <option value="none" selected="selected">-</option>
-            <option value="28">Action</option>
+            <option id="defaultValue${i}" value="none" selected="selected">-</option>
+            <option id="firstOption${i}" value="28">Action</option>
             <option value="12">Adventure</option>
             <option value="16">Animation</option>
             <option value="35">Comedy</option>
@@ -30,7 +31,12 @@ function generateGenreHtml() {
             <option value="37">Western</option>
         </select>
         `);
-    };   
+    }; 
+    // Removes the "-" option from genre1 as at least 1 genre is needed.
+    $("#defaultValue1").remove();
+    // Sets the selected option for genre1 as the first option in the list.
+    $("#firstOption1").attr("selected", true);
+
 }
 
 // This function contains, and generates, the HTML for each recommendation card.
