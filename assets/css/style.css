@@ -189,6 +189,10 @@ Recommendation list and cards
     font-size: 90%;   
 }
 
+.category-text-larger {
+    color: #F2F2F2;
+}
+
 .category-Text {
     color: #F2F2F2;
     font-size: 75%;
