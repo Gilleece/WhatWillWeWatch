@@ -47,31 +47,49 @@ function generateCardHtml(i) {
                 <img id="poster${i}" class="card-img-top" src="" alt="Movie Poster">
                 <div class="row">
                     <div class="col-4">
-                        <h5 class="card-title"><i class="fa fa-star star" aria-hidden="true"></i><span id="score${i}" class="score-text"></span></h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span id="scoreCount${i}"></span> votes</h6>
+                        <h5 class="card-title pull-left"><i class="fa fa-star star" aria-hidden="true"></i><span id="score${i}" class="score-text"></span></h5>
+                        <h6 class="card-subtitle mb-2 text-muted pull-left"><span id="scoreCount${i}"></span> votes&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 text-center">
                         <button id="trailerButton${i}" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal" data-src="" data-target="#myModal">
                             <span id="trailerButtonText${i}"><i class="fa fa-play-circle" aria-hidden="true"></i> Trailer</span>
                         </button> 
                     </div>                                       
                 </div>
-                <div class="card-body pt-0 ">
-                    
-                    <div class="card-header text-center align-middle">
-                        <h4 id="movieTitle${i}" class="card-title text-center titleSection"></h4>
+                <div class="card-body pt-0 ">                    
+                    <div class="card-header text-center">
+                        <h4 id="movieTitle${i}" class="card-title text-center"></h4>
                     </div>
-                    <h6 class="card-subtitle pt-1 pb-1"><span class=category>Genre: </span><span id="genreText${i}"></span></h6>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span class=category>Summary: </span>"<span id="summaryText${i}"></span>"</li><br>
-                        <li class="list-group-item"><span class=category>Stream at: </span><span id="whereStream${i}"></span><br><span class=category>Rent at: </span><span id="whereRent${i}"></span></li><br>
-                        <li class="list-group-item">
-                            <span class=categorySmall>Original Language: </span><span id="languageText${i}"></span><br>
-                            <span class=categorySmall>Runtime:  </span><span id="runtimeText${i}"></span> mins<br> 
-                            <span class=categorySmall>Release Date: </span><span id="releaseText${i}"></span><br> 
-                            <span class=categorySmall>Budget: </span><span id="budgetText${i}"></span>
-                        </li>
-                    </ul>
+                   <div class="accordion" id="detailsDropdown">
+    <div class="card">
+        <div class="card-header" id="moreDetails">
+            <h5 class="mb-0">
+                <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapse${i}"
+                    aria-expanded="true" aria-controls="collapse${i}">
+                    More details
+                </button>
+            </h5>
+        </div>        
+        <div id="collapse${i}" class="collapse" aria-labelledby="moreDetails" data-parent="#detailsDropdown">
+            <div class="card-body">
+                <h6 class="card-subtitle pt-1 pb-1"><span class=category>Genre: </span><span id="genreText${i}"></span>
+                </h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><span class=category>Summary: </span>"<span
+                            id="summaryText${i}"></span>"</li><br>
+                    <li class="list-group-item"><span class=category>Stream at: </span><span
+                            id="whereStream${i}"></span><br><span class=category>Rent at: </span><span
+                            id="whereRent${i}"></span></li><br>
+                    <li class="list-group-item">
+                        <span class=categorySmall>Original Language: </span><span id="languageText${i}"></span><br>
+                        <span class=categorySmall>Runtime: </span><span id="runtimeText${i}"></span> mins<br>
+                        <span class=categorySmall>Release Date: </span><span id="releaseText${i}"></span><br>
+                        <span class=categorySmall>Budget: </span><span id="budgetText${i}"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
                 </div>
             </div>`
     );
@@ -148,6 +166,10 @@ function saveCountry() {
         $("#country").val(localStorage.getItem('rememberedCountry'));
     }
 };
+
+
+
+
 
 
 
