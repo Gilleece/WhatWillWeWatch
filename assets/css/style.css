@@ -12,14 +12,6 @@ div:empty {
 Site's primary colours
 */
 
-.main-blue {
-    color: #0A0EF0;
-}
-
-.off-blue {
-    color: #040BDB;
-}
-
 .pale-blue {
     color: #7B84DB;
 }
@@ -112,6 +104,10 @@ Recommendation list and cards
     background-color: #7B84DB;
 }
 
+.btn-primary {
+    background-color: #0E95E6;
+}
+
 .score-text {
     font-size: 200%;
     color: #F2F2F2;   
@@ -149,19 +145,29 @@ Recommendation list and cards
 }
 
 .star {
-    color: #FAB14D;
+    color: #E6E219;
 }
 
 .category {
     color: #FAB14D;        
 }
 
-.categorySmall {
+.category-summary {
+    color: #7B84DB;        
+}
+
+.title-text {
+    color: #FAB14D;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.category-small {
     color: #7B84DB; 
     font-size: 90%;   
 }
 
-.categoryText {
+.category-Text {
     color: #F2F2F2;
     font-size: 75%;
 }

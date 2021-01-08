@@ -58,11 +58,11 @@ function generateCardHtml(i) {
                 </div>
                 <div class="card-body pt-0 ">                    
                     <div class="card-header text-center">
-                        <h4 id="movieTitle${i}" class="card-title text-center"></h4>
+                        <h4 id="movieTitle${i}" class="card-title title-text text-center"></h4>
                     </div> 
                 <div class="row">
                     <div class="col-12">
-                    <span class="category">Summary: </span>"<span id="summaryText${i}"></span>"
+                    <span class="category-summary">Summary: </span>"<span id="summaryText${i}"></span>"
                     </div>
                     <div class="col-12">      
                     <br>              
@@ -77,11 +77,11 @@ function generateCardHtml(i) {
                     <br>              
                     </div>                    
                     <div class="col-12">
-                        <span class="categorySmall">Genre: </span><span id="genreText${i}" class="categoryText"></span><br>
-                        <span class="categorySmall">Language: </span><span id="languageText${i}" class="categoryText"></span><br>
-                        <span class="categorySmall">Runtime: </span><span id="runtimeText${i}" class="categoryText"></span> <span class="categoryText">mins</span><br>
-                        <span class="categorySmall">Released: </span><span id="releaseText${i}" class="categoryText"></span><br>
-                        <span class="categorySmall">Budget: </span><span id="budgetText${i}" class="categoryText"></span>
+                        <span class="category-small">Genre: </span><span id="genreText${i}" class="category-Text"></span><br>
+                        <span class="category-small">Language: </span><span id="languageText${i}" class="category-Text"></span><br>
+                        <span class="category-small">Runtime: </span><span id="runtimeText${i}" class="category-Text"></span> <span class="category-Text">mins</span><br>
+                        <span class="category-small">Released: </span><span id="releaseText${i}" class="category-Text"></span><br>
+                        <span class="category-small">Budget: </span><span id="budgetText${i}" class="category-Text"></span>
                     </div>                                    
             </div>
         </div>
