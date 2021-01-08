@@ -43,9 +43,9 @@ function generateGenreHtml() {
 // This function contains, and generates, the HTML for each recommendation card.
 function generateCardHtml(i) {
     $(`#recommendationRow`).append(` 
-            <div id="recommendation${i}" class="card col-lg-3 h-100 justify-content-center">                
+            <div id="recommendation${i}" class="card col-md-5 col-lg-3 h-100 justify-content-center">                
+                <div class="row align-items-stretch">
                 <img id="poster${i}" class="card-img-top" src="" alt="Movie Poster">
-                <div class="row">
                     <div class="col-4">
                         <h5 class="card-title pull-left"><i class="fa fa-star star" aria-hidden="true"></i><span id="score${i}" class="score-text"></span></h5>
                         <h6 class="card-subtitle mb-2 text-muted pull-left"><span id="scoreCount${i}"></span> votes&nbsp;&nbsp;&nbsp;&nbsp;</h6>
@@ -56,22 +56,25 @@ function generateCardHtml(i) {
                         </button> 
                     </div>                                       
                 </div>
-                <div class="card-body pt-0 ">                    
+                <div class="card-body pt-0">                    
                     <div class="card-header text-center">
                         <h4 id="movieTitle${i}" class="card-title title-text text-center"></h4>
-                    </div> 
-                <div class="row">
+                    </div>                
                     <div class="col-12">
                     <span class="category-summary">Summary: </span>"<span id="summaryText${i}"></span>"
                     </div>
                     <div class="col-12">      
                     <br>              
                     </div>
-                    <div class="col-6">
-                        <span class="category">Stream at: </span><span id="whereStream${i}"></span>
-                    </div>
-                    <div class="col-6">
-                        <span class="category">Rent at: </span><span id="whereRent${i}"></span>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="category">Stream at: </span><span id="whereStream${i}"></span>
+                            </div>
+                            <div class="col-6">
+                                <span class="category">Rent at: </span><span id="whereRent${i}"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12">      
                     <br>              
@@ -82,8 +85,7 @@ function generateCardHtml(i) {
                         <span class="category-small">Runtime: </span><span id="runtimeText${i}" class="category-Text"></span> <span class="category-Text">mins</span><br>
                         <span class="category-small">Released: </span><span id="releaseText${i}" class="category-Text"></span><br>
                         <span class="category-small">Budget: </span><span id="budgetText${i}" class="category-Text"></span>
-                    </div>                                    
-            </div>
+                    </div>             
         </div>
     </div>
                 </div>

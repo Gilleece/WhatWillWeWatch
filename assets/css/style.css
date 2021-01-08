@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&family=Open+Sans:wght@300&display=swap');
 
 /*
 Hides empty divs
@@ -40,7 +40,21 @@ Search form
 Landing Div
 */
 
-body, html {
+body {
+    height: 100%;    
+}
+
+div, form, p, span {
+    font-family: 'Open Sans', sans-serif;  
+    font-weight: 300;  
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', serif; 
+    font-weight: 500; 
+}
+
+html {
     height: 100%;
 }
 
@@ -116,13 +130,9 @@ Recommendation list and cards
 .card {
     background-color: #0D0D0D;
     margin: 20px;
-    background-clip: padding-box;       
-
-}
-
-.card-img-top {
-    margin-top: .75rem;
-}
+    background-clip: padding-box;    
+    box-shadow: 0 8px 6px -6px black;    
+}      
 
 .card-header {
     background-color: #0D0D0D;
@@ -273,3 +283,4 @@ Animations
   /*
   Media Queries
   */
+  
