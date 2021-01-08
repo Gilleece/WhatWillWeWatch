@@ -43,7 +43,7 @@ function generateGenreHtml() {
 // This function contains, and generates, the HTML for each recommendation card.
 function generateCardHtml(i) {
     $(`#recommendationRow`).append(` 
-            <div id="recommendation${i}" class="card col-lg-3">   
+            <div id="recommendation${i}" class="card col-lg-3 shadow-lg">   
                 <div class="card-header text-center">
                     <h4 id="movieTitle${i}" class="card-title text-center"></h4>
                 </div>

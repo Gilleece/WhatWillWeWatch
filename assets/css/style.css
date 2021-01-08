@@ -109,11 +109,24 @@ Recommendation list and cards
 */
 
 .recommendationBoxStyle {
-    background-color: #FAB14D;
+    background-color: #3448FA;
 }
 
 .score-text {
     font-size: 200%;
+}
+
+.card {
+    background-color: #0D0D0D;
+    margin-top: 20px;
+    background-clip: padding-box;
+    border: 40px solid transparent;   
+
+}
+
+.card-header {
+    background-color: #0D0D0D;
+    color: #F2F2F2;
 }
 
 /* 
