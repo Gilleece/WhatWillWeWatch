@@ -64,14 +64,14 @@ function generateCardHtml(i) {
                         <div id="accordion${i}">                    
                         <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+                            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
                             Click for more details.
                             </button>
                         </h5>
                     </div>                    
                     <div id="collapse${i}" class="collapse" aria-labelledby="moreDetails" data-parent="#accordion${i}">
                         <div class="col-12">
-                        <span class="category-summary">Summary: </span>"<span id="summaryText${i}"></span>"
+                        <span class="category-summary">Summary: </span>"<span id="summaryText${i}" class="category-text-larger"></span>"
                         </div>
                         <div class="col-12">      
                         <br>              
@@ -79,10 +79,10 @@ function generateCardHtml(i) {
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6">
-                                    <span class="category">Stream at: </span><span id="whereStream${i}"></span>
+                                    <span class="category">Stream at: </span><span id="whereStream${i}" class="category-text-larger"></span>
                                 </div>
                                 <div class="col-6">
-                                    <span class="category">Rent at: </span><span id="whereRent${i}"></span>
+                                    <span class="category">Rent at: </span><span id="whereRent${i}" class="category-text-larger"></span>
                                 </div>
                             </div>
                         </div>
