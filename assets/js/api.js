@@ -84,11 +84,11 @@ function getWhereToStream(result, i) {
             let userCountry = `${country.value}`;
             // Checks if the data returned has the user's country as an option, if not then the text "none" is displayed.         
             if (!callResult.results[userCountry]) {
-                $("#whereStream" + i).html("None");
+                $("#whereStream" + i).html("<br>None");
             } else {
                 // Checks if the data returned for the user's country has "flatrate", if not then the text "none" is displayed.   
                 if (!callResult.results[userCountry].hasOwnProperty("flatrate")) {
-                    $("#whereStream" + i).html("None");
+                    $("#whereStream" + i).html("<br>None");
                 } else {
                     //Makes a list of where the movie can be streamed in the selected country.          
                     for (j = 0; j < callResult.results[userCountry].flatrate.length; j++) {
@@ -111,11 +111,11 @@ function getWhereToRent(result, i) {
             let userCountry = `${country.value}`;
             // Checks if the data returned has the user's country as an option, if not then the text "none" is displayed 
             if (!callResult.results[userCountry]) {
-                $("#whereRent" + i).html("None");
+                $("#whereRent" + i).html("<br>None");
             } else {
                 // Checks if the data returned for the user's country has "rent", if not then the text "none" is displayed
                 if (!callResult.results[userCountry].hasOwnProperty("rent")) {
-                    $("#whereRent" + i).html("None");
+                    $("#whereRent" + i).html("<br>None");
                 } else {
                     //Makes a list of where the movie can be rented in the selected country           
                     for (j = 0; j < callResult.results[userCountry].rent.length; j++) {

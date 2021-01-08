@@ -109,24 +109,60 @@ Recommendation list and cards
 */
 
 .recommendationBoxStyle {
-    background-color: #3448FA;
+    background-color: #7B84DB;
 }
 
 .score-text {
     font-size: 200%;
+    color: #F2F2F2;   
 }
 
 .card {
     background-color: #0D0D0D;
-    margin-top: 20px;
-    background-clip: padding-box;
-    border: 40px solid transparent;   
+    margin: 20px;
+    background-clip: padding-box;       
 
+}
+
+.card-img-top {
+    margin-top: .75rem;
 }
 
 .card-header {
     background-color: #0D0D0D;
+    color: #FAB14D;    
+}
+
+.card-body {
+    background: #0D0D0D;
     color: #F2F2F2;
+    flex: 0 0 auto;
+}
+
+.list-group-item {
+   background-color: #0D0D0D;
+   padding: 0px; 
+}
+
+.btn {
+    margin-top: 1rem;
+}
+
+.star {
+    color: #FAB14D;
+}
+
+.category {
+    color: #7B84DB;
+    font-size: 120%;
+}
+
+.categorySmall {
+    color: #7B84DB;
+}
+
+.titleSection {
+    min-height: 5rem;
 }
 
 /* 
