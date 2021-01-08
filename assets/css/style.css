@@ -153,12 +153,17 @@ Recommendation list and cards
 }
 
 .category {
-    color: #7B84DB;
-    font-size: 120%;
+    color: #7B84DB;        
 }
 
 .categorySmall {
-    color: #7B84DB;
+    color: #7B84DB; 
+    font-size: 90%;   
+}
+
+.categoryText {
+    color: #F2F2F2;
+    font-size: 75%;
 }
 
 /* 
@@ -244,8 +249,8 @@ Animations
   transform: scale3d(1, 1, 1);
   } 
   100% {
-  -webkit-transform: scale3d(1.2, 1.2, 1.2);
-  transform: scale3d(1.2, 1.2, 1.2);
+  -webkit-transform: scale3d(1.05, 1.05, 1.05);
+  transform: scale3d(1.05, 1.05, 1.05);
   }
   }
   @keyframes pulse {
@@ -254,8 +259,8 @@ Animations
   transform: scale3d(1, 1, 1);
   }
   100% {
-  -webkit-transform: scale3d(1.2, 1.2, 1.2);
-  transform: scale3d(1.2, 1.2, 1.2);
+  -webkit-transform: scale3d(1.05, 1.05, 1.05);
+  transform: scale3d(1.05, 1.05, 1.05);
   }
   } 
 
