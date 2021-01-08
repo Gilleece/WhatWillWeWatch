@@ -73,7 +73,7 @@ function generateCardHtml(i) {
                     </div>
                     <br>
                     <div class="col-6">
-                        <h6 class="card-subtitle pt-1 pb-1"><span class=category>Genre: </span><span id="genreText${i}"></span></h6>
+                        <h6 class="card-subtitle pt-1 pb-1"><span class=category>Genre:<br></span><span id="genreText${i}"></span></h6>
                     </div>
                     <div class="col-6">
                         <span class=categorySmall>Original Language: </span><span id="languageText${i}"></span><br>
@@ -138,8 +138,8 @@ function getGenreList(result, i) {
     let genreListResult = "";
     for (j = 0; j < result.results[i].genre_ids.length; j++) {
         if (j != result.results[i].genre_ids.length - 1) {
-            genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
-        } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]} </p><br>` }
+            genreListResult += `${genreList[result.results[i].genre_ids[j]]} <br>`
+        } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]}` }
     } return genreListResult;
 };
 
