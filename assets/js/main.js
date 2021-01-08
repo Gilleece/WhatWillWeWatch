@@ -62,24 +62,26 @@ function generateCardHtml(i) {
                     </div> 
                 <div class="row">
                     <div class="col-12">
-                    <span class=category>Summary: </span>"<span id="summaryText${i}"></span>"
+                    <span class="category">Summary: </span>"<span id="summaryText${i}"></span>"
                     </div>
-                    <br>
-                    <div class="col-6">
-                        <span class=category>Stream at: </span><span id="whereStream${i}"></span>
-                    </div>
-                    <div class="col-6">
-                        <span class=category>Rent at: </span><span id="whereRent${i}"></span>
-                    </div>
-                    <br>
-                    <div class="col-6">
-                        <span class=category>Genre:<br></span><span id="genreText${i}"></span>
+                    <div class="col-12">      
+                    <br>              
                     </div>
                     <div class="col-6">
-                        <span class=categorySmall>Original Language: </span><span id="languageText${i}"></span><br>
-                        <span class=categorySmall>Runtime: </span><span id="runtimeText${i}"></span> mins<br>
-                        <span class=categorySmall>Release Date: </span><span id="releaseText${i}"></span><br>
-                        <span class=categorySmall>Budget: </span><span id="budgetText${i}"></span>
+                        <span class="category">Stream at: </span><span id="whereStream${i}"></span>
+                    </div>
+                    <div class="col-6">
+                        <span class="category">Rent at: </span><span id="whereRent${i}"></span>
+                    </div>
+                    <div class="col-12">      
+                    <br>              
+                    </div>                    
+                    <div class="col-12">
+                        <span class="categorySmall">Genre: </span><span id="genreText${i}" class="categoryText"></span>
+                        <span class="categorySmall">Language: </span><span id="languageText${i}" class="categoryText"></span><br>
+                        <span class="categorySmall">Runtime: </span><span id="runtimeText${i}" class="categoryText"></span> <span class="categoryText">mins</span><br>
+                        <span class="categorySmall">Released: </span><span id="releaseText${i}" class="categoryText"></span><br>
+                        <span class="categorySmall">Budget: </span><span id="budgetText${i}" class="categoryText"></span>
                     </div>                                    
             </div>
         </div>
@@ -138,7 +140,7 @@ function getGenreList(result, i) {
     let genreListResult = "";
     for (j = 0; j < result.results[i].genre_ids.length; j++) {
         if (j != result.results[i].genre_ids.length - 1) {
-            genreListResult += `${genreList[result.results[i].genre_ids[j]]} <br>`
+            genreListResult += `${genreList[result.results[i].genre_ids[j]]},`
         } else { genreListResult += `${genreList[result.results[i].genre_ids[j]]}` }
     } return genreListResult;
 };
