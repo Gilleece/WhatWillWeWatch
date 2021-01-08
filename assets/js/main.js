@@ -58,7 +58,7 @@ function generateCardHtml(i) {
                     <h4 id="movieTitle${i}" class="card-title title-text text-center"></h4>
                 </div>
                 <div class="col-12 text-center">
-                    <button id="trailerButton${i}" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal"
+                    <button id="trailerButton${i}" type="button" class="btn btn-secondary video-btn mx-auto" data-toggle="modal"
                         data-src="" data-target="#myModal">
                         <span id="trailerButtonText${i}"><i class="fa fa-play-circle" aria-hidden="true"></i> Trailer</span>
                     </button>
@@ -104,7 +104,7 @@ function generateCardHtml(i) {
                         <h5 class="mb-0">
                             <button class="btn btn-primary more-details-button" data-toggle="collapse" data-target="#collapse${i}"
                                 aria-expanded="true" aria-controls="collapse${i}">
-                                Movie Details
+                                Click for details
                             </button>
                         </h5>
                 </div>
