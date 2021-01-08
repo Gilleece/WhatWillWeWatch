@@ -92,7 +92,11 @@ function getWhereToStream(result, i) {
                 } else {
                     //Makes a list of where the movie can be streamed in the selected country.          
                     for (j = 0; j < callResult.results[userCountry].flatrate.length; j++) {
+                        if (j === callResult.results[userCountry].flatrate.length-1) {
                         streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name} `;
+                        } else {
+                            streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name}, `;    
+                        }
                     } $("#whereStream" + i).html(streamList);
                 }
             }
@@ -119,7 +123,10 @@ function getWhereToRent(result, i) {
                 } else {
                     //Makes a list of where the movie can be rented in the selected country           
                     for (j = 0; j < callResult.results[userCountry].rent.length; j++) {
+                        if (j === callResult.results[userCountry].rent.length-1) {
                         rentList += `<br>${callResult.results[userCountry].rent[j].provider_name} `;
+                        } else { rentList += `<br>${callResult.results[userCountry].rent[j].provider_name}, `;
+                        }
                     } $("#whereRent" + i).html(rentList);
                 }
             }
