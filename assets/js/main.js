@@ -59,20 +59,7 @@ function generateCardHtml(i) {
                 <div class="card-body pt-0 ">                    
                     <div class="card-header text-center">
                         <h4 id="movieTitle${i}" class="card-title text-center"></h4>
-                    </div>
-                   <div class="accordion" id="detailsDropdown">
-    <div class="card">
-        <div class="card-header text-center" id="moreDetails">
-            <h5 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${i}"
-                    aria-expanded="true" aria-controls="collapse${i}">
-                    More details
-                </button>
-            </h5>
-        </div>        
-        <div id="collapse${i}" class="collapse" aria-labelledby="moreDetails" data-parent="#detailsDropdown">
-            <div class="card-body">
-                   
+                    </div> 
                 <div class="row">
                     <div class="col-12">
                     <span class=category>Summary: </span>"<span id="summaryText${i}"></span>"
@@ -93,8 +80,7 @@ function generateCardHtml(i) {
                         <span class=categorySmall>Runtime: </span><span id="runtimeText${i}"></span> mins<br>
                         <span class=categorySmall>Release Date: </span><span id="releaseText${i}"></span><br>
                         <span class=categorySmall>Budget: </span><span id="budgetText${i}"></span>
-                    </div>
-                </div>                    
+                    </div>                                    
             </div>
         </div>
     </div>
