@@ -119,16 +119,22 @@ Recommendation list and cards
 }
 
 .btn-primary {
-    background-color: #0E95E6;
+    background-color: #3D4EE3;
+    border-radius: 0;
+}
+
+.fa-star {
+    font-size: 80%;
 }
 
 .score-text {
-    font-size: 200%;
+    font-size: 180%;
     color: #F2F2F2;   
 }
 
 .score-count-text {
     color: #F2F2F2;
+    font-size: 60%;
 }
 
 .score-box {
@@ -142,7 +148,7 @@ Recommendation list and cards
     background-color: #0D0D0D;
     margin: 5px;
     background-clip: padding-box;    
-    box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 28px 56px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     padding: 0px;    
 }      
 
