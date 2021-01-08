@@ -177,7 +177,7 @@ Recommendation list and cards
 .title-text {
     color: #FAB14D;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .category-small {
@@ -193,6 +193,11 @@ Recommendation list and cards
     color: #F2F2F2;
     font-size: 75%;
 }
+
+.more-details-button {
+    min-width: 100%;
+}
+
 
 /* 
 Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE)
@@ -228,7 +233,7 @@ Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/x
 Animations
 */
 
-/* fadeInLeft and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimations/ */
+/* fadeIns and pulse from https://www.theappguruz.com/tag-tools/web/CSSAnimations/ */
 .fadeInLeft {
   -webkit-animation-name: fadeInLeftBig;
   animation-name: fadeInLeftBig;
@@ -261,6 +266,41 @@ Animations
   transform: none;
   }
   } 
+
+  @media (min-width: 992px) {
+        .fadeInRight {
+        -webkit-animation-name: fadeInRight;
+        animation-name: fadeInRight;
+        -webkit-animation-duration: 3s;
+        animation-duration: 3s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes fadeInRight {
+        0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        }
+        100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        }
+        }
+        @keyframes fadeInRight {
+        0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        }
+        100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        }
+        } 
+    }
 
   .pulse {
   -webkit-animation-name: pulse;
