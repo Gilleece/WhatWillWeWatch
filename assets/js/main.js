@@ -62,9 +62,9 @@ function generateCardHtml(i) {
                     </div>
                    <div class="accordion" id="detailsDropdown">
     <div class="card">
-        <div class="card-header" id="moreDetails">
+        <div class="card-header text-center" id="moreDetails">
             <h5 class="mb-0">
-                <button class="btn btn-link text-center" type="button" data-toggle="collapse" data-target="#collapse${i}"
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${i}"
                     aria-expanded="true" aria-controls="collapse${i}">
                     More details
                 </button>
@@ -72,21 +72,29 @@ function generateCardHtml(i) {
         </div>        
         <div id="collapse${i}" class="collapse" aria-labelledby="moreDetails" data-parent="#detailsDropdown">
             <div class="card-body">
-                <h6 class="card-subtitle pt-1 pb-1"><span class=category>Genre: </span><span id="genreText${i}"></span>
-                </h6>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><span class=category>Summary: </span>"<span
-                            id="summaryText${i}"></span>"</li><br>
-                    <li class="list-group-item"><span class=category>Stream at: </span><span
-                            id="whereStream${i}"></span><br><span class=category>Rent at: </span><span
-                            id="whereRent${i}"></span></li><br>
-                    <li class="list-group-item">
+                   
+                <div class="row">
+                    <div class="col-12">
+                    <span class=category>Summary: </span>"<span id="summaryText${i}"></span>"
+                    </div>
+                    <br>
+                    <div class="col-6">
+                        <span class=category>Stream at: </span><span id="whereStream${i}"></span>
+                    </div>
+                    <div class="col-6">
+                        <span class=category>Rent at: </span><span id="whereRent${i}"></span>
+                    </div>
+                    <br>
+                    <div class="col-6">
+                        <h6 class="card-subtitle pt-1 pb-1"><span class=category>Genre: </span><span id="genreText${i}"></span></h6>
+                    </div>
+                    <div class="col-6">
                         <span class=categorySmall>Original Language: </span><span id="languageText${i}"></span><br>
                         <span class=categorySmall>Runtime: </span><span id="runtimeText${i}"></span> mins<br>
                         <span class=categorySmall>Release Date: </span><span id="releaseText${i}"></span><br>
                         <span class=categorySmall>Budget: </span><span id="budgetText${i}"></span>
-                    </li>
-                </ul>
+                    </div>
+                </div>                    
             </div>
         </div>
     </div>
