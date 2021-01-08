@@ -249,8 +249,8 @@ Animations
   transform: scale3d(1, 1, 1);
   } 
   100% {
-  -webkit-transform: scale3d(1.05, 1.05, 1.05);
-  transform: scale3d(1.05, 1.05, 1.05);
+  -webkit-transform: scale3d(1.01, 1.01, 1.01);
+  transform: scale3d(1.01, 1.01, 1.01);
   }
   }
   @keyframes pulse {
@@ -259,8 +259,8 @@ Animations
   transform: scale3d(1, 1, 1);
   }
   100% {
-  -webkit-transform: scale3d(1.05, 1.05, 1.05);
-  transform: scale3d(1.05, 1.05, 1.05);
+  -webkit-transform: scale3d(1.01, 1.01, 1.01);
+  transform: scale3d(1.01, 1.01, 1.01);
   }
   } 
 
