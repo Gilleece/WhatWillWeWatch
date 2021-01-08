@@ -49,17 +49,17 @@ function generateCardHtml(i) {
                     <div class="col-4 score-box">
                         <h5 class="card-title pull-left"><i class="fa fa-star star" aria-hidden="true"></i><span id="score${i}" class="score-text"></span></h5>
                         <h6 class="card-subtitle mb-2 score-count-text pull-left"><span id="scoreCount${i}"></span> votes&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-                    </div>
-                    <div class="col-4 text-center">
-                        <button id="trailerButton${i}" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal" data-src="" data-target="#myModal">
-                            <span id="trailerButtonText${i}"><i class="fa fa-play-circle" aria-hidden="true"></i> Trailer</span>
-                        </button> 
-                    </div>                                       
+                    </div>                                                          
                 </div>
                 <div class="card-body pt-0">                    
                     <div class="card-header text-center">
                         <h4 id="movieTitle${i}" class="card-title title-text text-center"></h4>
-                    </div>                
+                    </div>
+                    <div class="col-12 text-center">
+                        <button id="trailerButton${i}" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal" data-src="" data-target="#myModal">
+                            <span id="trailerButtonText${i}"><i class="fa fa-play-circle" aria-hidden="true"></i> Trailer</span>
+                        </button> 
+                    </div>                 
                     <div class="col-12">
                     <span class="category-summary">Summary: </span>"<span id="summaryText${i}"></span>"
                     </div>
