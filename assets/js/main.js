@@ -77,7 +77,7 @@ function generateCardHtml(i) {
                     <br>              
                     </div>                    
                     <div class="col-12">
-                        <span class="categorySmall">Genre: </span><span id="genreText${i}" class="categoryText"></span>
+                        <span class="categorySmall">Genre: </span><span id="genreText${i}" class="categoryText"></span><br>
                         <span class="categorySmall">Language: </span><span id="languageText${i}" class="categoryText"></span><br>
                         <span class="categorySmall">Runtime: </span><span id="runtimeText${i}" class="categoryText"></span> <span class="categoryText">mins</span><br>
                         <span class="categorySmall">Released: </span><span id="releaseText${i}" class="categoryText"></span><br>
