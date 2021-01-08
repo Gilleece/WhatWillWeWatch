@@ -46,9 +46,9 @@ function generateCardHtml(i) {
             <div id="recommendation${i}" class="card col-md-5 col-lg-3 h-100 justify-content-center">                
                 <div class="row align-items-stretch">
                 <img id="poster${i}" class="card-img-top" src="" alt="Movie Poster">
-                    <div class="col-4">
+                    <div class="col-4 score-box">
                         <h5 class="card-title pull-left"><i class="fa fa-star star" aria-hidden="true"></i><span id="score${i}" class="score-text"></span></h5>
-                        <h6 class="card-subtitle mb-2 text-muted pull-left"><span id="scoreCount${i}"></span> votes&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <h6 class="card-subtitle mb-2 score-count-text pull-left"><span id="scoreCount${i}"></span> votes&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     </div>
                     <div class="col-4 text-center">
                         <button id="trailerButton${i}" type="button" class="btn btn-primary video-btn mx-auto" data-toggle="modal" data-src="" data-target="#myModal">
