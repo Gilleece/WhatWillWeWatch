@@ -159,10 +159,15 @@ Recommendation list and cards
     color: #FAB14D;    
 }
 
+.card-title {
+    margin-bottom: 1px;
+}
+
 .card-body {
     background: #0D0D0D;
     color: #F2F2F2;
     flex: 0 0 auto;
+    padding-bottom: 0;
 }
 
 .card-img-top {
