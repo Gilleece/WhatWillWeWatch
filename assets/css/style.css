@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
     height: 100%;
+    scroll-behavior: smooth;
 }
 
 .landing-div {
@@ -116,6 +117,7 @@ Recommendation list and cards
 
 .recommendation-box-style {
     background-color: #7B84DB;
+    min-height: 100vh;
 }
 
 .btn-primary {
@@ -135,7 +137,7 @@ Recommendation list and cards
 }
 
 .score-text {
-    font-size: 180%;
+    font-size: 150%;
     color: #F2F2F2;   
 }
 
@@ -176,6 +178,7 @@ Recommendation list and cards
 .card-img-top {
     padding-left: 15px;
     padding-right: 15px;
+    min-height: 343.72px;
 }
 
 .list-group-item {
@@ -195,7 +198,7 @@ Recommendation list and cards
     color: #7B84DB;        
 }
 
-.card-title {
+.title-text {
     color: #FAB14D;
     font-weight: bold;
     font-size: 100%;
@@ -218,6 +221,30 @@ Recommendation list and cards
 
 .more-details-button {
     min-width: 100%;
+}
+
+/* 
+Scroll to top button credit to: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+*/
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
 }
 
 
