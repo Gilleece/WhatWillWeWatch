@@ -9,7 +9,7 @@ function sendPreferences() {
     let userGenre1 = `&with_genres=${genre1.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`;
-    let certification = `&certification_country=US&certification=${ageRating.value}`
+    let certification = `&certification_country=US&certification=${ageRating.value}`;    
     //Makes sure recommendationRow is clear to stop previous searches holding over, or having unpopulated cards.
     $(`#recommendationRow`).html("");
     // API get request.
@@ -35,6 +35,7 @@ function sendPreferences() {
             }
         }
     )
+    scrollToRecommendationBox();
 };
 
 // This API call returns a youtube link for the "Play trailer" button, it also handles some of the functionality of each play trailer button itself
@@ -151,4 +152,8 @@ function getMoreMovieDetails(id, i) {
             }
         }
     )
+};
+
+let scrollToRecommendationBox = function(){
+    document.getElementById("recommendationBox").scrollIntoView();
 };
