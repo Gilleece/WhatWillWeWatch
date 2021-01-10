@@ -43,7 +43,7 @@ function generateGenreHtml() {
 // This function contains, and generates, the HTML for each recommendation card.
 function generateCardHtml(i) {
     $(`#recommendationRow`).append(` 
-                    <div id="recommendation${i}" class="card col-md-3 col-lg-2 h-100 justify-content-center">
+                    <div id="recommendation${i}" class="card col-sm-12 col-md-4 col-lg-3 col-xl-2 h-100 justify-content-center">
             <div class="row align-items-stretch">
                 <img id="poster${i}" class="card-img-top" src="" alt="Movie Poster">
                 <div class="col-4 score-box">
@@ -53,11 +53,11 @@ function generateCardHtml(i) {
                         votes&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                 </div>
             </div>
-            <div class="card-body pt-0">
+            <div class="card-body pt-0 pb-0">
                 <div class="card-header text-center">
                     <h4 id="movieTitle${i}" class="card-title title-text text-center"></h4>
                 </div>
-                <div class="col-12 text-center">
+                <div class="col-12 text-center" id="trailerButtonContainer${i}">
                     <button id="trailerButton${i}" type="button" class="btn btn-secondary video-btn mx-auto" data-toggle="modal"
                         data-src="" data-target="#myModal">
                         <span id="trailerButtonText${i}"><i class="fa fa-play-circle" aria-hidden="true"></i> Trailer</span>
@@ -186,8 +186,28 @@ function saveCountry() {
     }
 };
 
+// Scroll to top button credit to: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 
+//Get the button:
+mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 || document.window.pageYOffset > 20) {
+      console.log("TEST");
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
 
 
 

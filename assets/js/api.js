@@ -48,6 +48,8 @@ function getMovieTrailerKey(result, i) {
             //If no trailer is available then "Play Trailer" button is removed.            
             if (trailerKey.results.length === 0) {
                 $("#trailerButton" + i).remove();
+                // Trailer button is placed with a placeholder one to keep design consistent
+                $("#trailerButtonContainer" + i).html(`<button type="button" class="btn btn-secondary mx-auto"><span></i>Trailer Unavailable</span></button>`);
                 return;
             }
             //Inserts the trailer youtube URL into the "data-src" of the "Play Trailer" button.
