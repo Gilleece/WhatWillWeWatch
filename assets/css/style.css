@@ -183,7 +183,8 @@ Recommendation list and cards
 .card-img-top {
     padding-left: 15px;
     padding-right: 15px;
-    min-height: 450px; 
+    max-height: 450px; 
+    min-height: 450px;
     height: 100%;   
 }
 
@@ -441,5 +442,10 @@ Animations
 @media (min-width: 576px) { 
     .swipeText {
         display: none;
+    }
+
+    .card-img-top {    
+    max-height: none; 
+    min-height: none;     
     }
 }
