@@ -8,7 +8,7 @@ function generateGenreHtml() {
     // Generates 3 selects for user
     for (i = 1; i < 4; i++) {
         $("#genreSelector").append(`
-        <select id="genre${i}" name="genre${i}">
+        <select id="genre${i}" name="genre${i}" class="form-control">
             <option id="defaultValue${i}" value="none" selected="selected">-</option>
             <option id="firstOption${i}" value="28">Action</option>
             <option value="12">Adventure</option>
