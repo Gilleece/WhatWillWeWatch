@@ -440,7 +440,9 @@ Animations
         }
         
         #myBtn {
+        display: none;
         background-color: rgba(242, 200, 48, 0.5);
+        }
     }
 
 @media (min-width: 576px) { 
@@ -460,6 +462,4 @@ Animations
     max-height: none; 
     min-height: none;     
     }
-
     }
-}
