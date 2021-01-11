@@ -114,6 +114,7 @@ Form Div
     background-color: #7B84DB;
     min-height: 100vh;
     height: 100vh;
+    flex: 0 0 auto;
 }
 
 /* 
@@ -237,8 +238,8 @@ Scroll to top button credit to: https://www.w3schools.com/howto/howto_js_scroll_
 #myBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 20px; /* Place the button 30px from the right */
+    bottom: 35px; /* Place the button at the bottom of the page */
+    right: 35px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     
     border-style: dotted;
@@ -428,15 +429,11 @@ Animations
 
         .landing-div-content {      
         padding-top: 0vh; 
-        padding-bottom: 0vh;    
+        padding-bottom: 0vh;         
         }
 
         .what, .will, .we, .watch {
             font-size: 75%;
-        }
-
-        .landing-div {
-            max-width: 100vh;
         }
         
         #myBtn {
@@ -462,4 +459,24 @@ Animations
     max-height: none; 
     min-height: none;     
     }
+    }
+
+@media only screen 
+        and (min-device-width: 480px) 
+        and (max-device-width: 640px) 
+        and (orientation: landscape) {
+
+               .landing-div-content {      
+        padding-top: 5vh; 
+        padding-bottom: 0vh;    
+        }
+
+        .what, .will, .we, .watch {
+            font-size: 75%;
+        }
+
+        .pulse {
+            font-size: 400%;
+        }
+            
     }
