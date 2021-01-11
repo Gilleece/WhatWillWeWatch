@@ -183,8 +183,8 @@ Recommendation list and cards
 .card-img-top {
     padding-left: 15px;
     padding-right: 15px;
-    max-height: 450px; 
-    min-height: 450px;
+    max-height: 472.73px; 
+    min-height: 472.73px;
     height: 100%;   
 }
 
@@ -447,5 +447,12 @@ Animations
     .card-img-top {    
     max-height: none; 
     min-height: none;     
+    }
+}
+
+@media (min-width: 1200px) { 
+    .card-img-top {    
+    max-height: 504.79px; 
+    min-height: 504.79px;     
     }
 }
