@@ -107,8 +107,12 @@ h1 span {
 }
 
 /* 
-Form Div 
+Form 
 */
+
+.formCard {
+    background-color: #F2F2F2 !important;
+}
 
 .formDiv {
     background-color: #7B84DB;
