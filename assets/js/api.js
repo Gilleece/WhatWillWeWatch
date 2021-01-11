@@ -36,6 +36,8 @@ function sendPreferences() {
         }
     )
     scrollToRecommendationBox();
+    newSearchButton = document.getElementById("myBtn");
+    newSearchButton.style.display = "block";        
 };
 
 // This API call returns a youtube link for the "Play trailer" button, it also handles some of the functionality of each play trailer button itself
