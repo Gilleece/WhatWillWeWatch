@@ -68,7 +68,8 @@ html {
 .landing-div-content {
     background-color: #0D0D0D;    
     color: #F2F2F2;   
-    padding-top: 20vh; 
+    padding-top: 25vh; 
+    padding-bottom: 25vh;
     min-height: 100vh;
     height: 100vh;
 }
@@ -99,6 +100,10 @@ h1 span {
 
 .watch  {
   animation-delay: 1.3s;
+}
+
+.swipeText {
+    color: rgba(242, 242, 242, 0.4);
 }
 
 /* 
@@ -178,7 +183,8 @@ Recommendation list and cards
 .card-img-top {
     padding-left: 15px;
     padding-right: 15px;
-    min-height: 343.72px;
+    min-height: 450px; 
+    height: 100%;   
 }
 
 .list-group-item {
@@ -381,7 +387,59 @@ Animations
   }
   } 
 
+  /* flickerAnimation, credit to: https://stackoverflow.com/questions/23985018/simple-css-animation-loop-fading-in-out-loading-text */
+
+  @keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 3s infinite;
+   -moz-animation: flickerAnimation 3s infinite;
+   -o-animation: flickerAnimation 3s infinite;
+    animation: flickerAnimation 3s infinite;
+}
+
   /*
   Media Queries
   */
   
+  @media (max-width: 991.98px) {
+
+        .landing-div-content {      
+        padding-top: 0vh; 
+        padding-bottom: 0vh;    
+        }
+
+        .what, .will, .we, .watch {
+            font-size: 75%;
+        }
+
+        .landing-div {
+            max-width: 100vh;
+        }
+        
+
+    }
+
+@media (min-width: 576px) { 
+    .swipeText {
+        display: none;
+    }
+}
