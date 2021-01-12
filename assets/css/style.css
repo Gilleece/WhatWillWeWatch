@@ -148,7 +148,11 @@ label {
     background-color: #5362ED;
     border-color: #0D0D0D;
     outline: none;
-    color: #F2F2F2;
+    color: #F2F2F2 !important;
+}
+
+.select-style::placeholder {
+    color: #F2F2F2 !important;
 }
 
 .search {

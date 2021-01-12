@@ -168,6 +168,8 @@ function getGenreList(result, i) {
     } return genreListResult;
 };
 
+
+
 $('.flexdatalist').flexdatalist({
     selectionRequired: 1,
     minLength: 1
