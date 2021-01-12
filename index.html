@@ -37,13 +37,13 @@
                         
                             <div class="row justify-content-md-center">
                                 <div id="genreSelector" class="col-xs-12 col-md-6">
-                                    <label>Choose up to 3 genres:</label>
+                                    <label class="mb-0 mt-1">Choose up to 3 genres:</label>
                                     <!--generateGenreHtml() dynamically loads the HTML into here for the genre selection-->
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-xs-12 col-md-6">
-                                    <label for="minScore">Minimum score:</label>
+                                <div class="col-xs-12 col-md-6 mt-1">
+                                    <label for="minScore" class="mb-0">Minimum score:</label>
                                     <select id="minScore" name="minScore" class="form-control">
                                         <option value="0" selected="selected">0</option>
                                         <option value="1">1</option>
@@ -59,8 +59,8 @@
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-xs-12 col-md-6">
-                                    <label for="ageRating">Age rating:</label>
+                                <div class="col-xs-12 col-md-6 mt-1">
+                                    <label for="ageRating" class="mb-0">Age rating:</label>
                                     <select id="ageRating" name="ageRating" class="form-control">
                                         <option value="all" selected="selected">All age ratings</option>
                                         <option value="G">G</option>
@@ -73,8 +73,8 @@
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-xs-6 col-md-3">
-                                    <label for="decadeFrom">Year from:</label>
+                                <div class="col-xs-6 col-md-3 mt-1">
+                                    <label for="decadeFrom" class="mb-0">Year from:</label>
                                     <select id="decadeFrom" name="decadeFrom" class="form-control">
                                         <option value="1800-01-01" selected="selected">Any year</option>
                                         <option value="2020-01-01">2020</option>
@@ -92,8 +92,8 @@
                                         <option value="1900-01-01">1900</option>
                                     </select>
                                 </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <label for="decadeTo">Year to:</label>
+                                <div class="col-xs-6 col-md-3 mt-1">
+                                    <label for="decadeTo" class="mb-0">Year to:</label>
                                     <select id="decadeTo" name="decadeTo" class="form-control">
                                         <option value="2999-12-31" selected="selected">Any year</option>
                                         <option value="2020-01-01">2020</option>
@@ -116,8 +116,8 @@
                                 
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-xs-12 col-md-6">
-                                    <label for="runtime">Runtime less than:</label>
+                                <div class="col-xs-12 col-md-6 mt-1">
+                                    <label for="runtime" class="mb-0">Runtime less than:</label>
                                     <select id="runtime" name="runtime" class="form-control">
                                         <option value="500" selected="selected">Any length</option>
                                         <option value="180">3 hours</option>
@@ -128,7 +128,7 @@
                             </div>    
                             <div class="row justify-content-md-center">
                                 <div class="col-xs-12 col-md-6">
-                                    <label for="country">Streaming from:</label>
+                                    <label for="country" class="mb-0 mt-1">Streaming from:</label>
                                     <input id="country" class="countryInput flexdatalist" type="text" placeholder="Your Country" data-min-length="1"
                                         data-selection-required="1" list="countryList" name="country">
                                     <datalist id="countryList">
@@ -183,7 +183,7 @@
                             </div>
                             <div class="row justify-content-md-center">                                
                                 <div class="col-xs-12 col-md-auto mb-3">
-                                    <label for="sortBy">Sort by:</label>
+                                    <label for="sortBy" class="mb-0 mt-1">Sort by:</label>
                                     <select id="sortBy" name="sortBy" class="form-control">
                                         <option value="popularity.desc" selected="selected">Most Popular</option>
                                         <option value="popularity.asc">Least Popular</option>

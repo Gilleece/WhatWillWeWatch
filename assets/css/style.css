@@ -470,8 +470,8 @@ Animations
 
         .landing-div-content {      
         padding-top: 0vh; 
-        padding-bottom: 0vh;         
-        }
+        padding-bottom: 0vh;                 
+        }       
 
         .what, .will, .we, .watch {
             font-size: 75%;
@@ -480,6 +480,10 @@ Animations
         #myBtn {
         display: none;
         background-color: rgba(242, 200, 48, 0.5);
+        }
+
+        h1 {
+            padding-left: 3.5vh;
         }
     }
 
@@ -515,6 +519,10 @@ Animations
 
         .pulse {
             font-size: 400%;
+        }
+
+        h1 {
+            padding-left: 0vh;
         }
             
     }
