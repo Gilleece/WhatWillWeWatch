@@ -36,6 +36,10 @@ Search form
     font-size: 75%;
 }
 
+.form-control {
+    border-radius: 0px;
+}
+
 /*
 Landing Div
 */
@@ -526,3 +530,19 @@ Animations
         }
             
     }
+
+/*
+Search icon
+*/
+
+.search {
+    transition: .2s;
+    font-size: 125%;
+}
+
+.search:hover {
+		-webkit-animation: none;
+		-webkit-transform: scale(1.05);
+		animation: none;
+		transform: scale(1.05);
+	}
