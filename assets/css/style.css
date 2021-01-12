@@ -34,7 +34,7 @@ Search form
 
 .disclaimer-text {    
     font-size: 75%;
-};
+}
 
 /*
 Landing Div
@@ -489,22 +489,19 @@ Animations
     }
 
     .card-img-top {    
-    max-height: none; 
-    min-height: none;  
-       
+    max-height: none;       
     }
 }
 
 @media (min-width: 1200px) { 
     .card-img-top {    
-    max-height: none; 
-    min-height: none;     
+    max-height: none;          
     }
     }
 
 @media only screen 
-        and (min-device-width: 480px) 
-        and (max-device-width: 640px) 
+        and (min-width: 480px) 
+        and (max-width: 640px) 
         and (orientation: landscape) {
 
                .landing-div-content {      

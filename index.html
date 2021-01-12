@@ -37,7 +37,7 @@
                         
                             <div class="row justify-content-md-center">
                                 <div id="genreSelector" class="col-xs-12 col-md-6">
-                                    <label for="genre1">Choose up to 3 genres:</label>
+                                    <label>Choose up to 3 genres:</label>
                                     <!--generateGenreHtml() dynamically loads the HTML into here for the genre selection-->
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                 <div class="col-xs-12 col-md-6">
                                     <label for="country">Streaming from:</label>
                                     <input id="country" class="countryInput flexdatalist" type="text" placeholder="Your Country" data-min-length="1"
-                                        multiple="" data-selection-required="1" list="countryList" name="country">
+                                        data-selection-required="1" list="countryList" name="country">
                                     <datalist id="countryList">
                                         <option value="AR">Argentina</option>
                                         <option value="AT">Austria</option>
@@ -198,7 +198,7 @@
                             </div>    
                             <div class="row">  
                                 <div class="col-12">                         
-                                    <a href="#recommendationBox"><button class="btn btn-primary" type="button" id="send" onclick="return sendPreferences(preferencesForm);">Show me the movies!</button></a>
+                                    <button class="btn btn-primary" type="button" id="send" onclick="return sendPreferences(preferencesForm);">Show me the movies!</button>
                                 </div>
                             </div>
                         
