@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&family=Open+Sans:wght@300;800&display=swap');
 
 /*
 Hides empty divs
@@ -28,17 +28,6 @@ Site's primary colours
     color: #FAB14D;
 }
 
-/*
-Search form
-*/
-
-.disclaimer-text {    
-    font-size: 75%;
-}
-
-.form-control {
-    border-radius: 0px;
-}
 
 /*
 Landing Div
@@ -127,17 +116,7 @@ Form
 
 label {
     font-size: 125%;
-    color: #F2F2F2;
-}
-
-.form-header {
-    background-color: #3D4EE3 !important;
-    color: #F2F2F2 !important;
-}
-
-.form-subheader {
-    color: #F2F2F2 !important;
-    font-size: 85%;
+    color: #7B84DB;
 }
 
 .countryInput {
@@ -157,6 +136,39 @@ label {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.disclaimer-text {    
+    font-size: 75%;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.select-style {
+    background-color: #5362ED;
+    border-color: #0D0D0D;
+    outline: none;
+    color: #F2F2F2;
+}
+
+.search {
+    transition: .2s;
+    font-size: 150%;
+    font-weight: bold;
+    background-color: #FAB14D !important;
+    border-color: #FAB14D !important;
+    outline-color: #FAB14D !important;
+    color: #0D0D0D !important;
+}
+
+.search:hover {
+		-webkit-animation: none;
+		-webkit-transform: scale(1.05);
+		animation: none;
+		transform: scale(1.05);
+	}
+
+
 /* 
 Recommendation list and cards 
 */
@@ -167,10 +179,10 @@ Recommendation list and cards
 }
 
 .btn-primary {
-    background-color: #3D4EE3;
+    background-color: #5362ED;
     border-radius: 0;
     margin-bottom: -1px;
-    border-color: #3D4EE3;
+    border-color: #5362ED;
 }
 
 .btn-secondary {
@@ -248,7 +260,7 @@ Recommendation list and cards
 
 .title-text {
     color: #FAB14D;
-    font-weight: bold;
+    font-weight: 800;
     font-size: 100%;
     height: 8vh;
 }
@@ -265,10 +277,23 @@ Recommendation list and cards
 .category-Text {
     color: #F2F2F2;
     font-size: 75%;
+} 
+
+.streaming-Text {
+    color: #7B84DB;
+    font-style: italic;
+    font-size: 85%;
 }
 
 .more-details-button {
     min-width: 100%;
+}
+
+option {
+    background-color: #5362ED;
+    border-color: #0D0D0D;
+    outline: none;
+    color: #F2F2F2;
 }
 
 
@@ -489,6 +514,16 @@ Animations
         h1 {
             padding-left: 3.5vh;
         }
+
+        .mobile-padding {
+            padding-left: 5vh;
+            padding-right: 5vh;
+        }
+
+        .mobile-padding-sort {
+            padding-left: 8vh;
+            padding-right: 8vh;
+        }
     }
 
 @media (min-width: 576px) { 
@@ -531,18 +566,4 @@ Animations
             
     }
 
-/*
-Search icon
-*/
 
-.search {
-    transition: .2s;
-    font-size: 125%;
-}
-
-.search:hover {
-		-webkit-animation: none;
-		-webkit-transform: scale(1.05);
-		animation: none;
-		transform: scale(1.05);
-	}
