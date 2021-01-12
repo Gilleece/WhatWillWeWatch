@@ -188,7 +188,7 @@ function saveCountry() {
 
 // When the user clicks on the new search button, scroll to the top of the document
 function topFunction() {
-    document.getElementById("preferencesForm").scrollIntoView();
+    document.getElementById("formDiv").scrollIntoView();
     newSearchButton = document.getElementById("myBtn"); // Get button
     newSearchButton.style.display = "none"; // Hide it until send is clicked again
 };

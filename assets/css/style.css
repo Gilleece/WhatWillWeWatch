@@ -116,7 +116,7 @@ Form
     min-height: 50vh;
 }
 
-.formDiv {
+#formDiv {
     background-color: #7B84DB;    
     flex: 0 0 auto;
 }
@@ -463,6 +463,10 @@ Animations
   */
   
   @media (max-width: 991.98px) {
+
+        .card {
+            margin: 25px;
+        }
 
         .landing-div-content {      
         padding-top: 0vh; 

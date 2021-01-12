@@ -29,24 +29,23 @@
                 <br>                
                 <h4 class="col-sm-4 swipeText text-center mt-5 pt-5 animate-flicker">Swipe Up To Search<br><i class="fa fa-angle-double-up" style="font-size: 200%;"></i></h4>               
             </div>
-            <div class="col-sm-8 col-xs-12 formDiv fadeInRight align-self-center">
+            <div id="formDiv" class="col-sm-8 col-xs-12 fadeInRight align-self-center mt-3">
                 <!--User Preferences Form-->
-                <div class="card formCard text-center col-lg-6">
-                    <h3 class="card-header text-center form-header mt-0">What do you want to watch?</h3>
-                    <h5 class="card-title text-center form-subheader mt-1">Choose as many options as you'd like.</h5>
+                <div class="card formCard text-center col-xs-12 col-md-6">
+                    <h3 class="card-header text-center form-header mt-0">What do you want to watch?</h3>                    
                     <form id="preferencesForm">
                         
                             <div class="row justify-content-md-center">
-                                <div id="genreSelector" class="col-6">
+                                <div id="genreSelector" class="col-xs-12 col-md-6">
                                     <label for="genre1">Choose up to 3 genres:</label>
                                     <!--generateGenreHtml() dynamically loads the HTML into here for the genre selection-->
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-6">
+                                <div class="col-xs-12 col-md-6">
                                     <label for="minScore">Minimum score:</label>
                                     <select id="minScore" name="minScore" class="form-control">
-                                        <option value="0" selected="selected">-</option>
+                                        <option value="0" selected="selected">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -60,10 +59,10 @@
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-6">
+                                <div class="col-xs-12 col-md-6">
                                     <label for="ageRating">Age rating:</label>
                                     <select id="ageRating" name="ageRating" class="form-control">
-                                        <option value="all" selected="selected">-</option>
+                                        <option value="all" selected="selected">All age ratings</option>
                                         <option value="G">G</option>
                                         <option value="PG">PG</option>
                                         <option value="PG-13">PG-13</option>
@@ -74,10 +73,10 @@
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-6">
-                                    <label for="decadeFrom">Earliest Decade:</label>
+                                <div class="col-xs-6 col-md-3">
+                                    <label for="decadeFrom">Year from:</label>
                                     <select id="decadeFrom" name="decadeFrom" class="form-control">
-                                        <option value="1800-01-01" selected="selected">-</option>
+                                        <option value="1800-01-01" selected="selected">Any year</option>
                                         <option value="2020-01-01">2020</option>
                                         <option value="2010-01-01">2010</option>
                                         <option value="2000-01-01">2000</option>
@@ -93,12 +92,10 @@
                                         <option value="1900-01-01">1900</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row justify-content-md-center">
-                                <div class="col-6">
-                                    <label for="decadeTo">Latest Decade:</label>
+                                <div class="col-xs-6 col-md-3">
+                                    <label for="decadeTo">Year to:</label>
                                     <select id="decadeTo" name="decadeTo" class="form-control">
-                                        <option value="2999-12-31" selected="selected">-</option>
+                                        <option value="2999-12-31" selected="selected">Any year</option>
                                         <option value="2020-01-01">2020</option>
                                         <option value="2010-01-01">2010</option>
                                         <option value="2000-01-01">2000</option>
@@ -116,10 +113,13 @@
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">
-                                <div class="col-6">
+                                
+                            </div>
+                            <div class="row justify-content-md-center">
+                                <div class="col-xs-12 col-md-6">
                                     <label for="runtime">Runtime less than:</label>
                                     <select id="runtime" name="runtime" class="form-control">
-                                        <option value="500" selected="selected">-</option>
+                                        <option value="500" selected="selected">Any length</option>
                                         <option value="180">3 hours</option>
                                         <option value="150">2.5 hours</option>
                                         <option value="120">2 hours</option>
@@ -127,7 +127,7 @@
                                 </div>
                             </div>    
                             <div class="row justify-content-md-center">
-                                <div class="col-6">
+                                <div class="col-xs-12 col-md-6">
                                     <label for="country">Streaming from:</label>
                                     <input id="country" class="countryInput flexdatalist" type="text" placeholder="Your Country" data-min-length="1"
                                         multiple="" data-selection-required="1" list="countryList" name="country">
@@ -178,10 +178,11 @@
                                         <option value="US">USA</option>
                                         <option value="VE">Venezuela</option>
                                     </datalist>
+                                <p class="category-Text">(To see if it's on Netflix, Prime etc...)</p>
                                 </div>
                             </div>
                             <div class="row justify-content-md-center">                                
-                                <div class="col-auto">
+                                <div class="col-xs-12 col-md-auto mb-3">
                                     <label for="sortBy">Sort by:</label>
                                     <select id="sortBy" name="sortBy" class="form-control">
                                         <option value="popularity.desc" selected="selected">Most Popular</option>
@@ -196,8 +197,8 @@
                                 </div> 
                             </div>    
                             <div class="row">  
-                                <div class="col-12 m-2">                         
-                                    <a href="#recommendationBox"><button class="btn btn-primary" type="button" id="send" onclick="return sendPreferences(preferencesForm);">Send</button></a>
+                                <div class="col-12">                         
+                                    <a href="#recommendationBox"><button class="btn btn-primary" type="button" id="send" onclick="return sendPreferences(preferencesForm);">Show me the movies!</button></a>
                                 </div>
                             </div>
                         
