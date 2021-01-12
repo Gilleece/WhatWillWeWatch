@@ -151,8 +151,8 @@ label {
     color: #F2F2F2 !important;
 }
 
-.select-style::placeholder {
-    color: #F2F2F2 !important;
+.select-style:focus {
+    color: #0D0D0D !important;
 }
 
 .search {
