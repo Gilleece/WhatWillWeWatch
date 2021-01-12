@@ -188,9 +188,16 @@ function saveCountry() {
 
 // When the user clicks on the new search button, scroll to the top of the document
 function topFunction() {
-    document.getElementById("formDiv").scrollIntoView();
-    newSearchButton = document.getElementById("myBtn"); // Get button
+    document.getElementById("formDiv").scrollIntoView();    
+    newSearchButton = document.getElementById("myBtn"); // Get button    
     newSearchButton.style.display = "none"; // Hide it until send is clicked again
+};
+
+//Moves footer to bottom of page when search is clicked
+
+function moveFooter() {
+    footerPosition = document.getElementById("footerId"); // Gets the footer
+    footerPosition.style.position = "relative";
 };
 
 

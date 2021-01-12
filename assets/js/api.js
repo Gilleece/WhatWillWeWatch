@@ -4,6 +4,7 @@ API Calls
 
 // This is the function attached to the send button on the form.
 function sendPreferences() {
+    moveFooter();
     // Gets some of the user's choices for the initial API call.
     let baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${tmdbApi}&language=en-US&sort_by=${sortBy.value}&vote_count.gte=50&with_runtime.lte=${runtime.value}&vote_average.gte=${minScore.value}&primary_release_date.lte=${decadeTo.value}&primary_release_date.gte=${decadeFrom.value}&with_runtime.gte=60&include_adult=false&include_video=false&page=1`;
     let userGenre1 = `&with_genres=${genre1.value}`;
