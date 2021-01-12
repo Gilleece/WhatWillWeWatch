@@ -76,11 +76,11 @@ function generateCardHtml(i) {
                     <div class="col-12">
                         <div class="row">
                             <div class="col-6">
-                                <span class="category">Stream at: </span><span id="whereStream${i}"
+                                <span class="category"><i class="fa fa-tv"></i> Stream at: </span><span id="whereStream${i}"
                                     class="category-text-larger"></span>
                             </div>
                             <div class="col-6">
-                                <span class="category">Rent at: </span><span id="whereRent${i}"
+                                <span class="category"><i class="fas fa-wallet"></i> Rent at: </span><span id="whereRent${i}"
                                     class="category-text-larger"></span>
                             </div>
                         </div>
@@ -89,14 +89,14 @@ function generateCardHtml(i) {
                         <br>
                     </div>
                     <div class="col-12">
-                        <span class="category-small">Genre: </span><span id="genreText${i}" class="category-Text"></span><br>
-                        <span class="category-small">Language: </span><span id="languageText${i}"
+                        <span class="category-small"><i class="fas fa-theater-masks"></i> Genre: </span><span id="genreText${i}" class="category-Text"></span><br>
+                        <span class="category-small"><i class="fas fa-language"></i> Language: </span><span id="languageText${i}"
                             class="category-Text"></span><br>
-                        <span class="category-small">Runtime: </span><span id="runtimeText${i}" class="category-Text"></span>
+                        <span class="category-small"><i class="far fa-clock"></i> Runtime: </span><span id="runtimeText${i}" class="category-Text"></span>
                         <span class="category-Text">mins</span><br>
-                        <span class="category-small">Released: </span><span id="releaseText${i}"
+                        <span class="category-small"><i class="far fa-calendar-alt"></i> Released: </span><span id="releaseText${i}"
                             class="category-Text"></span><br>
-                        <span class="category-small">Budget: </span><span id="budgetText${i}" class="category-Text"></span>
+                        <span class="category-small"><i class="fas fa-dollar-sign"></i> Budget: </span><span id="budgetText${i}" class="category-Text"></span>
                     </div>
                 </div>
             </div>
