@@ -104,7 +104,7 @@ function generateCardHtml(i) {
                         <h5 class="mb-0">
                             <button class="btn btn-primary more-details-button" data-toggle="collapse" data-target="#collapse${i}"
                                 aria-expanded="true" aria-controls="collapse${i}">
-                                Click for details
+                                Click for details <i class="fas fa-info-circle"></i>
                             </button>
                         </h5>
                 </div>
