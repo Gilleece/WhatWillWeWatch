@@ -1,9 +1,8 @@
-/* 
-HTML Generation and user input handling. 
+//----------------------HTML Generation and user input handling. ----------------------
+
+/*
+This function generates the HTML for the genre selections.
 */
-
-// This function generates the HTML for the genre selections.
-
 function generateGenreHtml() {
     // Generates 3 selects for user
     for (i = 1; i < 4; i++) {
@@ -39,8 +38,9 @@ function generateGenreHtml() {
 
 }
 
-
-// This function contains, and generates, the HTML for each recommendation card.
+/* 
+This function contains, and generates, the HTML for each recommendation card.
+*/
 function generateCardHtml(i) {
     $(`#recommendationRow`).append(` 
                     <div id="recommendation${i}" class="card col-sm-12 col-md-4 col-lg-3 col-xl-2 h-100 justify-content-center">
@@ -114,7 +114,9 @@ function generateCardHtml(i) {
     );
 }
 
-// This function deals with the user's genre choices, and age rating choice.
+/* 
+This function deals with the user's genre choices, and age rating choice.
+*/ 
 function preferencesURL(base, gen1, gen2, gen3, cert) {
     let urlCombination = base + gen1;
     //checks for option genre 2 and 3        
@@ -133,7 +135,9 @@ function preferencesURL(base, gen1, gen2, gen3, cert) {
     return urlCombination;
 };
 
-// This function handles the bulk of calling other functions to generate the recommendation cards.
+/* 
+This function handles the bulk of calling other functions to generate the recommendation cards.
+*/  
 function recommendationList(result) {
     // If no results are found, based on the user's choices.
     if (result.total_results == 0) {
@@ -157,8 +161,9 @@ function recommendationList(result) {
         getMoreMovieDetails(result.results[i].id, i);
     };
 };
-
-// This generates the list of genres, along with formatting, to be put into the recommendation card
+/* 
+This generates the list of genres, along with formatting, to be put into the recommendation card.
+*/ 
 function getGenreList(result, i) {
     let genreListResult = "";
     for (j = 0; j < result.results[i].genre_ids.length; j++) {
@@ -168,14 +173,8 @@ function getGenreList(result, i) {
     } return genreListResult;
 };
 
-
-
-$('.flexdatalist').flexdatalist({
-    selectionRequired: 1,
-    minLength: 1
-});
-
 //---------------------- Local Storage ----------------------
+
 /* 
 Loads the country selected (saves as in stores data, not heroic feat of bravery) and recalls upon page load.
 */
@@ -184,22 +183,23 @@ function loadCountry() {
         $("#country").val(localStorage.getItem('rememberedCountry'));
     }
 };
-
-// When the user clicks on the new search button, scroll to the top of the document
+/* 
+When the user clicks on the new search button, scroll to the top of the document
+*/
 function topFunction() {
     document.getElementById("formDiv").scrollIntoView();
     newSearchButton = document.getElementById("myBtn"); // Get button    
     newSearchButton.style.display = "none"; // Hide it until send is clicked again
 };
 
-
 //---------------------- Wait for document loading ----------------------
+//handles the flexdatalist of country input
 $(document).ready(function () {
     $('.flexdatalist').flexdatalist({
         selectionRequired: 1,
         minLength: 1
     });
-
+//checks for a change in user's input country and saves it
     $("#country").change(function () {
         localStorage.setItem('rememberedCountry', this.value);
     });
