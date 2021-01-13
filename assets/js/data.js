@@ -1,11 +1,13 @@
-/*
-Stored Information
-*/
+//---------------------- Stored Information ----------------------
 
-// TMDB API Key (Hiding the key for this API is not really possible, or necessary, due to the free/unlimited nature of it. More info here from the API creator: https://www.themoviedb.org/talk/582744abc3a3683601019dcc?language=en-IE)
+/*
+TMDB API Key (Hiding the key for this API is not really possible, or necessary, due to the free/unlimited nature of it. More info here from the API creator: https://www.themoviedb.org/talk/582744abc3a3683601019dcc?language=en-IE)
+*/
 const tmdbApi = "b11a13a3abf2339dc3e37bef3ec05d32";
 
-// Genre list for calling API
+/*
+Genre list for calling API
+*/ 
 let genreList = {
     28: "Action",
     12: "Adventure",
@@ -28,8 +30,9 @@ let genreList = {
     37: "Western"
 };
 
-// Genre list for getting user's input
-
+/*
+Genre list for getting user's input
+*/
 let userGenreList = {
     "Action": 28,
     "Adventure": 12,
@@ -52,7 +55,9 @@ let userGenreList = {
     "Western": 37
 }
 
-// Language Codes (Sourced from, and credit to: https://gist.github.com/wpsmith/7604842 )
+/*
+Language Codes, used to change api returned lang codes into language name for user readability (Sourced from, and credit to: https://gist.github.com/wpsmith/7604842 )
+*/
 let langCodes = {
     "af": "Afrikaans",
     "sq": "Albanian",
