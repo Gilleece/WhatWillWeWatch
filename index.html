@@ -3,16 +3,19 @@
 
 <head>
     <title>What Will We Watch - Personalized movie recommendations.</title>
-    <meta name="description" content="Find movies you'll love, easily and quickly! What Will We Watch gives you personalized movie recommendations, along with showing you where you can stream/rent them in your country.">
+    <meta name="description"
+        content="Find movies you'll love, easily and quickly! What Will We Watch gives you personalized movie recommendations, along with showing you where you can stream/rent them in your country.">
     <meta charset="UTF-8">
-    <meta name="keywords" content="Movies, Films, Cinema, Recommendation, Search, List, Suggestion, Find, Netflix, Prime, Sky, Show, Entertainment">
+    <meta name="keywords"
+        content="Movies, Films, Cinema, Recommendation, Search, List, Suggestion, Find, Netflix, Prime, Sky, Show, Entertainment">
     <meta name="author" content="Sean Gilleece">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="assets/css/jquery.flexdatalist.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script>history.scrollRestoration = "manual"</script>
 </head>
@@ -22,192 +25,204 @@
     <div class="container-fluid">
         <div class="row landing-div">
             <div class="landing-div-content text-left col-sm-4 col-xs-12">
+                <!--Site logo text-->
                 <h1 class="pulse">W<span class="fadeInLeft what">hat</span></h1>
                 <h1 class="pulse">W<span class="fadeInLeft will">ill</span></h1>
                 <h1 class="pulse">W<span class="fadeInLeft we">e</span></h1>
                 <h1 class="pulse">W<span class="fadeInLeft watch">atch?</span></h1>
-                <br>                
-                <h4 class="col-sm-4 swipeText text-center mt-5 pt-5 animate-flicker">Swipe Up To Search<br><i class="fa fa-angle-double-up" style="font-size: 200%;"></i></h4>               
+                <br>
+                <!--Swipe up instruction, appears only on mobile-->
+                <h4 class="col-sm-4 swipeText text-center mt-5 pt-5 animate-flicker">Swipe Up To Search<br><i
+                        class="fa fa-angle-double-up" style="font-size: 200%;"></i></h4>
             </div>
             <div id="formDiv" class="col-sm-8 col-xs-12 fadeInRight align-self-center mt-3">
                 <!--User Preferences Form-->
                 <div class="p-3">
-                    <div class="card formCard text-center col-12">                                        
+                    <div class="card formCard text-center col-12">
                         <form id="preferencesForm">
-                            
-                                <div class="row justify-content-md-center">
-                                    <div id="genreSelector" class="col-xs-12 col-md-12 col-lg-6 mobile-padding">
-                                        <label class="mb-0 mt-1">Choose up to 3 genres:</label>
-                                        <!--generateGenreHtml() dynamically loads the HTML into here for the genre selection-->
-                                    </div>
+
+                            <div class="row justify-content-md-center">
+                                <!--Genres-->
+                                <div id="genreSelector" class="col-xs-12 col-md-12 col-lg-6 mobile-padding">
+                                    <label class="mb-0 mt-1">Choose up to 3 genres:</label>
+                                    <!--generateGenreHtml() dynamically loads the HTML into here for the genre selection-->
                                 </div>
-                                <div class="row justify-content-md-center">
-                                    <div class="col-xs-12 col-md-12 col-lg-6 mt-1 mobile-padding">
-                                        <label for="minScore" class="mb-0">Minimum score:</label>
-                                        <select id="minScore" name="minScore" class="form-control select-style">
-                                            <option value="0" selected="selected">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <!--Minimum score-->
+                            <div class="row justify-content-md-center">                                
+                                <div class="col-xs-12 col-md-12 col-lg-6 mt-1 mobile-padding">
+                                    <label for="minScore" class="mb-0">Minimum score:</label>
+                                    <select id="minScore" name="minScore" class="form-control select-style">
+                                        <option value="0" selected="selected">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
                                 </div>
-                                <div class="row justify-content-md-center">
-                                    <div class="col-xs-12 col-md-12 col-lg-6 mt-1 mobile-padding">
-                                        <label for="ageRating" class="mb-0">Age rating:</label>
-                                        <select id="ageRating" name="ageRating" class="form-control select-style">
-                                            <option value="all" selected="selected">All age ratings</option>
-                                            <option value="G">G</option>
-                                            <option value="PG">PG</option>
-                                            <option value="PG-13">PG-13</option>
-                                            <option value="R">R</option>
-                                            <option value="NC-17">NC-17</option>
-                                            <option value="NR">Not rated</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <!--Age rating-->
+                            <div class="row justify-content-md-center">
+                                <div class="col-xs-12 col-md-12 col-lg-6 mt-1 mobile-padding">
+                                    <label for="ageRating" class="mb-0">Age rating:</label>
+                                    <select id="ageRating" name="ageRating" class="form-control select-style">
+                                        <option value="all" selected="selected">All age ratings</option>
+                                        <option value="G">G</option>
+                                        <option value="PG">PG</option>
+                                        <option value="PG-13">PG-13</option>
+                                        <option value="R">R</option>
+                                        <option value="NC-17">NC-17</option>
+                                        <option value="NR">Not rated</option>
+                                    </select>
                                 </div>
-                                <div class="row justify-content-md-center">
-                                    <div class="col-xs-12 col-md-12 col-lg-3 mt-1 mobile-padding">
-                                        <label for="decadeFrom" class="mb-0">Year from:</label>
-                                        <select id="decadeFrom" name="decadeFrom" class="form-control select-style">
-                                            <option value="1800-01-01" selected="selected">Any year</option>
-                                            <option value="2020-01-01">2020</option>
-                                            <option value="2010-01-01">2010</option>
-                                            <option value="2000-01-01">2000</option>
-                                            <option value="1990-01-01">1990</option>
-                                            <option value="1980-01-01">1980</option>
-                                            <option value="1970-01-01">1970</option>
-                                            <option value="1960-01-01">1960</option>
-                                            <option value="1950-01-01">1950</option>
-                                            <option value="1940-01-01">1940</option>
-                                            <option value="1930-01-01">1930</option>
-                                            <option value="1920-01-01">1920</option>
-                                            <option value="1910-01-01">1910</option>
-                                            <option value="1900-01-01">1900</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-12 col-md-12 col-lg-3 mt-1 mobile-padding">
-                                        <label for="decadeTo" class="mb-0">Year to:</label>
-                                        <select id="decadeTo" name="decadeTo" class="form-control select-style">
-                                            <option value="2999-12-31" selected="selected">Any year</option>
-                                            <option value="2020-01-01">2020</option>
-                                            <option value="2010-01-01">2010</option>
-                                            <option value="2000-01-01">2000</option>
-                                            <option value="1990-01-01">1990</option>
-                                            <option value="1980-01-01">1980</option>
-                                            <option value="1970-01-01">1970</option>
-                                            <option value="1960-01-01">1960</option>
-                                            <option value="1950-01-01">1950</option>
-                                            <option value="1940-01-01">1940</option>
-                                            <option value="1930-01-01">1930</option>
-                                            <option value="1920-01-01">1920</option>
-                                            <option value="1910-01-01">1910</option>
-                                            <option value="1900-01-01">1900</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <!--Year from-->
+                            <div class="row justify-content-md-center">
+                                <div class="col-xs-12 col-md-12 col-lg-3 mt-1 mobile-padding">
+                                    <label for="decadeFrom" class="mb-0">Year from:</label>
+                                    <select id="decadeFrom" name="decadeFrom" class="form-control select-style">
+                                        <option value="1800-01-01" selected="selected">Any year</option>
+                                        <option value="2020-01-01">2020</option>
+                                        <option value="2010-01-01">2010</option>
+                                        <option value="2000-01-01">2000</option>
+                                        <option value="1990-01-01">1990</option>
+                                        <option value="1980-01-01">1980</option>
+                                        <option value="1970-01-01">1970</option>
+                                        <option value="1960-01-01">1960</option>
+                                        <option value="1950-01-01">1950</option>
+                                        <option value="1940-01-01">1940</option>
+                                        <option value="1930-01-01">1930</option>
+                                        <option value="1920-01-01">1920</option>
+                                        <option value="1910-01-01">1910</option>
+                                        <option value="1900-01-01">1900</option>
+                                    </select>
                                 </div>
-                                <div class="row justify-content-md-center">
-                                    
+                            <!--Year to-->
+                                <div class="col-xs-12 col-md-12 col-lg-3 mt-1 mobile-padding">
+                                    <label for="decadeTo" class="mb-0">Year to:</label>
+                                    <select id="decadeTo" name="decadeTo" class="form-control select-style">
+                                        <option value="2999-12-31" selected="selected">Any year</option>
+                                        <option value="2020-01-01">2020</option>
+                                        <option value="2010-01-01">2010</option>
+                                        <option value="2000-01-01">2000</option>
+                                        <option value="1990-01-01">1990</option>
+                                        <option value="1980-01-01">1980</option>
+                                        <option value="1970-01-01">1970</option>
+                                        <option value="1960-01-01">1960</option>
+                                        <option value="1950-01-01">1950</option>
+                                        <option value="1940-01-01">1940</option>
+                                        <option value="1930-01-01">1930</option>
+                                        <option value="1920-01-01">1920</option>
+                                        <option value="1910-01-01">1910</option>
+                                        <option value="1900-01-01">1900</option>
+                                    </select>
                                 </div>
-                                <div class="row justify-content-md-center">
-                                    <div class="col-xs-12 col-md-12 col-lg-6 mt-1 mobile-padding">
-                                        <label for="runtime" class="mb-0">Runtime less than:</label>
-                                        <select id="runtime" name="runtime" class="form-control select-style">
-                                            <option value="500" selected="selected">Any length</option>
-                                            <option value="180">3 hours</option>
-                                            <option value="150">2.5 hours</option>
-                                            <option value="120">2 hours</option>
-                                        </select>
-                                    </div>
-                                </div>    
-                                <div class="row justify-content-md-center">
-                                    <div class="col-xs-12 col-md-12 col-lg-6 mobile-padding">
-                                        <label for="country" class="mb-0 mt-1">Streaming from:</label>
-                                        <input id="country" class="countryInput flexdatalist select-style" type="text" placeholder="Type Your Country Here" data-min-length="1"
-                                            data-selection-required="1" list="countryList" name="country">
-                                        <datalist id="countryList">
-                                            <option value="AR">Argentina</option>
-                                            <option value="AT">Austria</option>
-                                            <option value="AU">Australia</option>
-                                            <option value="BE">Belgium</option>
-                                            <option value="BR">Brazil</option>
-                                            <option value="CL">Chile</option>
-                                            <option value="CO">Colombia</option>
-                                            <option value="CZ">Czechia</option>
-                                            <option value="DK">Denmark</option>
-                                            <option value="EC">Ecuador</option>
-                                            <option value="EE">Estonia</option>
-                                            <option value="FI">Finland</option>
-                                            <option value="FR">France</option>
-                                            <option value="DE">Germany</option>
-                                            <option value="GR">Greece</option>
-                                            <option value="HU">Hungary</option>
-                                            <option value="IN">India</option>
-                                            <option value="ID">Indonesia</option>
-                                            <option value="IE">Ireland</option>
-                                            <option value="IT">Italy</option>
-                                            <option value="JP">Japan</option>
-                                            <option value="LT">Lithuania</option>
-                                            <option value="LV">Latvia</option>
-                                            <option value="MY">Malaysia</option>
-                                            <option value="MX">Mexico</option>
-                                            <option value="NL">Netherlands</option>
-                                            <option value="NO">Norway</option>
-                                            <option value="NZ">New Zealand</option>
-                                            <option value="PE">Peru</option>
-                                            <option value="PH">Philippines</option>
-                                            <option value="PL">Poland</option>
-                                            <option value="PT">Portugal</option>
-                                            <option value="RO">Romania</option>
-                                            <option value="RU">Russia</option>
-                                            <option value="SG">Singapore</option>
-                                            <option value="ZA">South Africa</option>
-                                            <option value="KR">South Korea</option>
-                                            <option value="ES">Spain</option>
-                                            <option value="SE">Sweden</option>
-                                            <option value="CH">Switzerland</option>
-                                            <option value="TH">Thailand</option>
-                                            <option value="TR">Turkey</option>
-                                            <option value="GB">UK</option>
-                                            <option value="US">USA</option>
-                                            <option value="VE">Venezuela</option>
-                                        </datalist>
+                            </div>                            
+                            <!--Runtime-->
+                            <div class="row justify-content-md-center">
+                                <div class="col-xs-12 col-md-12 col-lg-6 mt-1 mobile-padding">
+                                    <label for="runtime" class="mb-0">Runtime less than:</label>
+                                    <select id="runtime" name="runtime" class="form-control select-style">
+                                        <option value="500" selected="selected">Any length</option>
+                                        <option value="180">3 hours</option>
+                                        <option value="150">2.5 hours</option>
+                                        <option value="120">2 hours</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--Country input-->
+                            <div class="row justify-content-md-center">
+                                <div class="col-xs-12 col-md-12 col-lg-6 mobile-padding">
+                                    <label for="country" class="mb-0 mt-1">Streaming from:</label>
+                                    <input id="country" class="countryInput flexdatalist select-style" type="text"
+                                        placeholder="Type Your Country Here" data-min-length="1"
+                                        data-selection-required="1" list="countryList" name="country">
+                                    <datalist id="countryList">
+                                        <option value="AR">Argentina</option>
+                                        <option value="AT">Austria</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="BE">Belgium</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="CL">Chile</option>
+                                        <option value="CO">Colombia</option>
+                                        <option value="CZ">Czechia</option>
+                                        <option value="DK">Denmark</option>
+                                        <option value="EC">Ecuador</option>
+                                        <option value="EE">Estonia</option>
+                                        <option value="FI">Finland</option>
+                                        <option value="FR">France</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="GR">Greece</option>
+                                        <option value="HU">Hungary</option>
+                                        <option value="IN">India</option>
+                                        <option value="ID">Indonesia</option>
+                                        <option value="IE">Ireland</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="LT">Lithuania</option>
+                                        <option value="LV">Latvia</option>
+                                        <option value="MY">Malaysia</option>
+                                        <option value="MX">Mexico</option>
+                                        <option value="NL">Netherlands</option>
+                                        <option value="NO">Norway</option>
+                                        <option value="NZ">New Zealand</option>
+                                        <option value="PE">Peru</option>
+                                        <option value="PH">Philippines</option>
+                                        <option value="PL">Poland</option>
+                                        <option value="PT">Portugal</option>
+                                        <option value="RO">Romania</option>
+                                        <option value="RU">Russia</option>
+                                        <option value="SG">Singapore</option>
+                                        <option value="ZA">South Africa</option>
+                                        <option value="KR">South Korea</option>
+                                        <option value="ES">Spain</option>
+                                        <option value="SE">Sweden</option>
+                                        <option value="CH">Switzerland</option>
+                                        <option value="TH">Thailand</option>
+                                        <option value="TR">Turkey</option>
+                                        <option value="GB">UK</option>
+                                        <option value="US">USA</option>
+                                        <option value="VE">Venezuela</option>
+                                    </datalist>
                                     <p class="streaming-Text">(To see if it's on Netflix, Prime, etc...)</p>
-                                    </div>
                                 </div>
-                                <div class="row justify-content-md-center">                                
-                                    <div class="col-xs-12 col-md-auto mb-3 mobile-padding-sort">
-                                        <label for="sortBy" class="mb-0 mt-1">Sort by:</label>
-                                        <select id="sortBy" name="sortBy" class="form-control select-style">
-                                            <option value="popularity.desc" selected="selected">Most Popular</option>
-                                            <option value="popularity.asc">Least Popular</option>
-                                            <option value="vote_average.desc">Highest Score</option>
-                                            <option value="vote_average.asc">Lowest Score</option>
-                                            <option value="release_date.desc">Newest</option>
-                                            <option value="release_date.asc">Oldest</option>
-                                            <option value="vote_count.desc">Most scored</option>
-                                            <option value="vote_count.asc">Least scored</option>
-                                        </select>
-                                    </div> 
-                                </div>    
-                                <div class="row">  
-                                    <div class="col-12">                         
-                                        <button class="btn btn-primary btn-block search" type="button" id="send" onclick="return sendPreferences(preferencesForm);">Search <i class="fa fa-search"></i></button>
-                                    </div>
-                                </div>                            
+                            </div>
+                            <!--Sort by-->
+                            <div class="row justify-content-md-center">
+                                <div class="col-xs-12 col-md-auto mb-3 mobile-padding-sort">
+                                    <label for="sortBy" class="mb-0 mt-1">Sort by:</label>
+                                    <select id="sortBy" name="sortBy" class="form-control select-style">
+                                        <option value="popularity.desc" selected="selected">Most Popular</option>
+                                        <option value="popularity.asc">Least Popular</option>
+                                        <option value="vote_average.desc">Highest Score</option>
+                                        <option value="vote_average.asc">Lowest Score</option>
+                                        <option value="release_date.desc">Newest</option>
+                                        <option value="release_date.asc">Oldest</option>
+                                        <option value="vote_count.desc">Most scored</option>
+                                        <option value="vote_count.asc">Least scored</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--Search button-->
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-primary btn-block search" type="button" id="send"
+                                        onclick="return sendPreferences(preferencesForm);">Search <i
+                                            class="fa fa-search"></i></button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
-
+    </div>
+    <!--Recommendation cards are dynamically generated and inserted here-->
     <div class="recommendation-box-style">
         <div id="recommendationBox" class="container-fluid">
             <div id="recommendationRow" class="row justify-content-center">
@@ -217,16 +232,18 @@
 
     <!--Footer-->
     <footer id="footerId" class="footer">
-      <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <span class="text-muted">Contact: <a href="mailto:info@whatwillwewatch.com">info@whatwillwewatch.com</a></span>
-            </div>
-            <div class="col-6">
-                <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer"><img src="assets/images/tmdblogo.svg" alt="The Movie Database logo" class="tmdb-logo"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <span class="text-muted">Contact: <a
+                            href="mailto:info@whatwillwewatch.com">info@whatwillwewatch.com</a></span>
+                </div>
+                <div class="col-6">
+                    <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer"><img
+                            src="assets/images/tmdblogo.svg" alt="The Movie Database logo" class="tmdb-logo"></a>
+                </div>
             </div>
         </div>
-      </div>
     </footer>
 
     <!-- Youtube trailer button modal (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE) -->
@@ -239,8 +256,7 @@
                     </button>
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="#" id="video"
-                            allow="autoplay"></iframe>
+                        <iframe class="embed-responsive-item" src="#" id="video" allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
@@ -248,7 +264,6 @@
     </div>
     <!-- Scroll to top button credit to: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp -->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><strong>New Search</strong></button>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
@@ -257,9 +272,6 @@
     <script type="text/javascript" src="assets/js/data.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script src="assets/js/jquery.flexdatalist.min.js"></script>
-    <script>window.scrollTo(0,0);</script>
+    <script>window.scrollTo(0, 0);</script>
 </body>
-
-
-
 </html>
