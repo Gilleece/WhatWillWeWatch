@@ -175,25 +175,37 @@ $('.flexdatalist').flexdatalist({
     minLength: 1
 });
 
-/*
-Local Storage
+//---------------------- Local Storage ----------------------
+/* 
+Loads the country selected (saves as in stores data, not heroic feat of bravery) and recalls upon page load.
 */
-
-// Saves the country selected (saves as in stores data, not heroic feat of bravery) and recalls upon page load.
-function saveCountry() {
-    $("#country").change(function () {
-        localStorage.setItem('rememberedCountry', this.value);
-    }); if (localStorage.getItem('rememberedCountry')) {
+function loadCountry() {
+    if (localStorage.getItem('rememberedCountry')) {
         $("#country").val(localStorage.getItem('rememberedCountry'));
     }
 };
 
 // When the user clicks on the new search button, scroll to the top of the document
 function topFunction() {
-    document.getElementById("formDiv").scrollIntoView();    
+    document.getElementById("formDiv").scrollIntoView();
     newSearchButton = document.getElementById("myBtn"); // Get button    
     newSearchButton.style.display = "none"; // Hide it until send is clicked again
 };
+
+
+//---------------------- Wait for document loading ----------------------
+$(document).ready(function () {
+    $('.flexdatalist').flexdatalist({
+        selectionRequired: 1,
+        minLength: 1
+    });
+
+    $("#country").change(function () {
+        localStorage.setItem('rememberedCountry', this.value);
+    });
+
+    loadCountry();
+});
 
 
 
