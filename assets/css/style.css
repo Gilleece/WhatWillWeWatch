@@ -187,10 +187,24 @@ Recommendation list and cards
 }
 
 .btn-primary {
-    background-color: #5362ED;
+    background-color: #FAB14D ;
     border-radius: 0;
     margin-bottom: -1px;
-    border-color: #5362ED;
+    border-color: #FAB14D;
+    color: #0D0D0D;
+    font-size: 110%;
+}
+
+.btn-primary:hover {
+    background-color: #A16C22;
+    border-color: #A16C22;
+    color: #0D0D0D;
+}
+
+.btn-primary:focus {
+    background-color: #A16C22;
+    border-color: #A16C22;
+    color: #0D0D0D;
 }
 
 .btn-secondary {
