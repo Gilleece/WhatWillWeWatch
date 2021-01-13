@@ -24,6 +24,7 @@ function sendPreferences() {
             // Handle Success.             
             let recommendations = response;
             $("#recommendationBox").html(recommendationList(recommendations));
+            scrollToRecommendationBox();
         },
         // Handle error
         function (errorResponse) {
@@ -34,8 +35,7 @@ function sendPreferences() {
                 $("#recommendationRow").html(`<h2>Error: ${errorResponse.responseJSON.status_message}</h2>`);
             }
         }
-    )
-    scrollToRecommendationBox();
+    )    
     newSearchButton = document.getElementById("myBtn");
     newSearchButton.style.display = "block";        
 };
