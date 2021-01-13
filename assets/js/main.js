@@ -116,7 +116,7 @@ function generateCardHtml(i) {
 
 /* 
 This function deals with the user's genre choices, and age rating choice.
-*/ 
+*/
 function preferencesURL(base, gen1, gen2, gen3, cert) {
     let urlCombination = base + gen1;
     //checks for option genre 2 and 3        
@@ -137,7 +137,7 @@ function preferencesURL(base, gen1, gen2, gen3, cert) {
 
 /* 
 This function handles the bulk of calling other functions to generate the recommendation cards.
-*/  
+*/
 function recommendationList(result) {
     // If no results are found, based on the user's choices.
     if (result.total_results == 0) {
@@ -161,9 +161,10 @@ function recommendationList(result) {
         getMoreMovieDetails(result.results[i].id, i);
     };
 };
+
 /* 
 This generates the list of genres, along with formatting, to be put into the recommendation card.
-*/ 
+*/
 function getGenreList(result, i) {
     let genreListResult = "";
     for (j = 0; j < result.results[i].genre_ids.length; j++) {
@@ -199,7 +200,7 @@ $(document).ready(function () {
         selectionRequired: 1,
         minLength: 1
     });
-//checks for a change in user's input country and saves it
+    //checks for a change in user's input country and saves it
     $("#country").change(function () {
         localStorage.setItem('rememberedCountry', this.value);
     });
