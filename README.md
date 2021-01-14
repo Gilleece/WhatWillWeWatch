@@ -6,7 +6,7 @@
 
 ![](assets/readme/responsiveness.png)
 
-WhatWillWeWatch.com is my milestone 2 project. It is a site built upon "The Movie DataBase" api, using a variety of endpoints to bring users a simple front end that allows them to get movie recommendations based on their preferences, along with inputting their country to see on which services the movies are available for streaming or renting. The site is fully responsive and laid out in a minimal manner to present users with meaningful movie choices, and enough data to make those choices without being overwhelming or cluttered. The bulk of the site is dynamically generated through JS along with utilizing local storage to make for a more seamless and enjoyable user experience. 
+WhatWillWeWatch.com is my milestone 2 project. It is a site built upon the "The Movie DataBase" api, using a variety of endpoints to bring users a simple easy to use frontend that allows them to get movie recommendations based on their preferences, along with inputting their country to see on which services the movies are available for streaming or renting. The site is fully responsive and laid out in a minimal manner to present users with meaningful movie choices, and enough data to make those choices without being overwhelming or cluttered. The bulk of the site is dynamically generated through JS along with utilizing local storage to make for a more seamless and enjoyable user experience. 
  
 # Table of contents
 1. [UX](#UX)
@@ -34,17 +34,18 @@ WhatWillWeWatch.com is my milestone 2 project. It is a site built upon "The Movi
 
 ## UX <a name="UX"></a>
 
-The primary goal with the sites UX, in terms of UI, was to make the website minimal and uncluttered. The website is design to clearly and simply present the user data that they will find useful and help them acheive their goal of choosing a movie to watch. 
+The primary goal with the sites UX, in terms of UI, was to make the website minimal and uncluttered. The website is designed to clearly and simply present data to the user that they will find useful and help them acheive their goal of choosing a movie to watch. 
 
 ### First Time Visitor Goals: <a name="firsttime"></a>
 - As a first time visitor I need to be able to navigate the site easily and clearly understand how to use the function of the site.
-- I want to be able to see a clear list of movies, along with relevant details.4
+- I want to be able to see a clear list of movies, along with relevant details.
 - I want to quickly and easily alter my search preferences to get other movie recommendations.
 
 ### Returning Visitor Goals: <a name="returning"></a>
-- I want my region saved to reduce the required input necessary.
+- I want my country saved to reduce the required input
+ necessary.
 - I want the experience to remain consistent and continue to easily find good choices for me to watch.
-- I perhaps want to contain the site owner to make a suggestion.
+- I perhaps want to contact the site owner to make a suggestion.
 
 ## Design: <a name="design"></a>
 
@@ -59,8 +60,8 @@ The primary goal with the sites UX, in terms of UI, was to make the website mini
 
 ### Layout: <a name="layout"></a>
 - As mentioned earlier, the site is deliberately minimal in its style and layout. I chose to avoid images to keep the user focused on the movie recommendations, rather than the site surrounding them.
-- Movie recommendations are presented as cards and site is built upon Bootstrap's grid system. The recommendation cards scale in number shown at once depending on the site of the users device.
-- Basic info is presented at a glance, such as the movie's score, name, if a trailer is available and the poser. Users can click for an accordion style drop down to display more detailed information.
+- Movie recommendations are presented as cards and the site is built upon Bootstrap's grid system. The recommendation cards scale in number shown at once depending on the size of the user's device.
+- Basic info is presented at a glance, such as the movie's score, name, if a trailer is available and the poster. Users can click for an accordion style drop down to display more detailed information.
 
 ### Wireframes: <a name="wireframes"></a>
 
@@ -100,6 +101,8 @@ The primary goal with the sites UX, in terms of UI, was to make the website mini
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 1. [jQuery:](https://jquery.com/)
     - jQuery was used for the api calls and for the flex data list. It was also used for dynamically generating HTML.
+1. [jQuery FlexDataList:](http://projects.sergiodinislopes.pt/flexdatalist/)
+    - This was used for the country input.
 1. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
@@ -132,10 +135,10 @@ My manual testing process was as follows.
         - Try various potential user inputs and search parameters.
         - Try various things like refreshing the page in different sections.
         - Look for results that broke the styling in anyway.
-        - Test different scenarios to see if the site continued worked (for example, I would input search parameters that return no results and see if the site continues functioning after this)
+        - Test different scenarios to see if the site continued worked (for example, I would input search parameters that return no results and see if the site continues functioning after this).
         - Emulate different errors like 404 to make sure they were being handled correctly.
     * Mobile only        
-        - Try common gestures like pinch to zoom, rotating orientation        
+        - Try common gestures like pinch to zoom, rotating orientation.     
 
     All tests were performed across multiple browsers and OS.
             
