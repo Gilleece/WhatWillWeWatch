@@ -53,7 +53,7 @@ let userGenreList = {
     "Thriller": 53,
     "War": 10752,
     "Western": 37
-}
+};
 
 /*
 Language Codes, used to change api returned lang codes into language name for user readability (Sourced from, and credit to: https://gist.github.com/wpsmith/7604842 )
