@@ -1,3 +1,5 @@
+
+
 /*
 API Calls
 */
@@ -20,7 +22,7 @@ function sendPreferences() {
             //Checks to make sure "decade from" value is lower than the "to" value, alerts if not.
             if (decadeFrom.value >= decadeTo.value) {
                 alert("When choosing to search by decade, 'from' must be lower than 'to'");
-            };
+            }
             // Handle Success.             
             let recommendations = response;
             $("#recommendationBox").html(recommendationList(recommendations));
@@ -35,10 +37,10 @@ function sendPreferences() {
                 $("#recommendationRow").html(`<h2>Error: ${errorResponse.responseJSON.status_message}</h2>`);
             }
         }
-    )    
+    );    
     newSearchButton = document.getElementById("myBtn");
     newSearchButton.style.display = "block";        
-};
+}
 
 // This API call returns a youtube link for the "Play trailer" button, it also handles some of the functionality of each play trailer button itself
 function getMovieTrailerKey(result, i) {
@@ -56,10 +58,10 @@ function getMovieTrailerKey(result, i) {
             }
             //Inserts the trailer youtube URL into the "data-src" of the "Play Trailer" button.
             else {
-                $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`)
+                $("#trailerButton" + i).attr("data-src", `https://www.youtube.com/embed/${trailerKey.results[0].key}`);
             }
         }
-    )
+    );
     // Youtube trailer button (credit to Jacob Lett: https://codepen.io/JacobLett/pen/xqpEYE).
     $(this).ready(function () {
         var $videoSrc;
@@ -68,19 +70,19 @@ function getMovieTrailerKey(result, i) {
         });
         $('#myModal').on('shown.bs.modal', function () {
             $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
+        });
         $('#myModal').on('hide.bs.modal', function () {
             $("#video").attr('src', $videoSrc);
-        })
+        });
     });
     // End of youtube trailer button code.
-};
+}
 
 
 
 // This API call takes the user's location input and returns a list of services that the movie can be streamed from.
 function getWhereToStream(result, i) {
-    let streamCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`
+    let streamCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`;
     $.when(
         $.getJSON(streamCall)
     ).then(
@@ -106,12 +108,12 @@ function getWhereToStream(result, i) {
                 }
             }
         }
-    )
-};
+    );
+}
 
 // This API call takes the user's location input and returns a list of services that the movie can be rented from.
 function getWhereToRent(result, i) {
-    let rentCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`
+    let rentCall = `https://api.themoviedb.org/3/movie/${result.results[i].id}/watch/providers?api_key=${tmdbApi}`;
     $.when(
         $.getJSON(rentCall)
     ).then(
@@ -136,12 +138,12 @@ function getWhereToRent(result, i) {
                 }
             }
         }
-    )
-};
+    );
+}
 
 // Uses the Movie ID to call the API for additional details that aren't returned in the intial call.
 function getMoreMovieDetails(id, i) {
-    let idUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbApi}&language=en-US`
+    let idUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${tmdbApi}&language=en-US`;
     $.when(
         $.getJSON(idUrl)
     ).then(
@@ -155,8 +157,8 @@ function getMoreMovieDetails(id, i) {
                 $("#budgetText" + i).html(`${detailsResponse.budget.toLocaleString()} USD`);
             }
         }
-    )
-};
+    );
+}
 
 let scrollToRecommendationBox = function(){
     document.getElementById("recommendationBox").scrollIntoView();
