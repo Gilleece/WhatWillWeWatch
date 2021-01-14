@@ -591,11 +591,6 @@ Animations
             font-size: 400%;
         }   
     }
-@media (max-width: 575.98px) {
-        .pulse {
-            font-size: none;
-        }        
-}
 
 @media (min-width: 576px) { 
     .swipeText {
