@@ -214,6 +214,8 @@ It has no impact on functionality and doesn't reference any code in my project (
 
 [W3C Validator CSS result](assets/readme/w3ccss.png) (Shows no errors).
 
+[JShint](https://jshint.com/) (Shows no issues on all js files: main.js, api.js, data.js).
+
 ## Deployment <a name="deployment"></a>
 
 ### GitHub Pages <a name="pages"></a>
