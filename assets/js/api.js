@@ -1,5 +1,3 @@
-
-
 /*
 API Calls
 */
@@ -11,7 +9,7 @@ function sendPreferences() {
     let userGenre1 = `&with_genres=${genre1.value}`;
     let userGenre2 = `%2C${genre2.value}`;
     let userGenre3 = `%2C${genre3.value}`;
-    let certification = `&certification_country=US&certification=${ageRating.value}`;    
+    let certification = `&certification_country=US&certification=${ageRating.value}`;
     //Makes sure recommendationRow is clear to stop previous searches holding over, or having unpopulated cards.
     $(`#recommendationRow`).html("");
     // API get request.
@@ -37,9 +35,9 @@ function sendPreferences() {
                 $("#recommendationRow").html(`<h2>Error: ${errorResponse.responseJSON.status_message}</h2>`);
             }
         }
-    );    
+    );
     newSearchButton = document.getElementById("myBtn");
-    newSearchButton.style.display = "block";        
+    newSearchButton.style.display = "block";
 }
 
 // This API call returns a youtube link for the "Play trailer" button, it also handles some of the functionality of each play trailer button itself
@@ -99,10 +97,10 @@ function getWhereToStream(result, i) {
                 } else {
                     //Makes a list of where the movie can be streamed in the selected country.          
                     for (j = 0; j < callResult.results[userCountry].flatrate.length; j++) {
-                        if (j === callResult.results[userCountry].flatrate.length-1) {
-                        streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name} `;
+                        if (j === callResult.results[userCountry].flatrate.length - 1) {
+                            streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name} `;
                         } else {
-                            streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name}, `;    
+                            streamList += `<br>${callResult.results[userCountry].flatrate[j].provider_name}, `;
                         }
                     } $("#whereStream" + i).html(streamList);
                 }
@@ -130,9 +128,10 @@ function getWhereToRent(result, i) {
                 } else {
                     //Makes a list of where the movie can be rented in the selected country           
                     for (j = 0; j < callResult.results[userCountry].rent.length; j++) {
-                        if (j === callResult.results[userCountry].rent.length-1) {
-                        rentList += `<br>${callResult.results[userCountry].rent[j].provider_name} `;
-                        } else { rentList += `<br>${callResult.results[userCountry].rent[j].provider_name}, `;
+                        if (j === callResult.results[userCountry].rent.length - 1) {
+                            rentList += `<br>${callResult.results[userCountry].rent[j].provider_name} `;
+                        } else {
+                            rentList += `<br>${callResult.results[userCountry].rent[j].provider_name}, `;
                         }
                     } $("#whereRent" + i).html(rentList);
                 }
@@ -160,6 +159,6 @@ function getMoreMovieDetails(id, i) {
     );
 }
 
-let scrollToRecommendationBox = function(){
+let scrollToRecommendationBox = function () {
     document.getElementById("recommendationBox").scrollIntoView();
 };
