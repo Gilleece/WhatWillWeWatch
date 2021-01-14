@@ -558,7 +558,7 @@ Animations
         }
 
         .landing-div-content {      
-        padding-top: 0vh; 
+        padding-top: 15vh; 
         padding-bottom: 0vh;                 
         }       
 
@@ -586,7 +586,16 @@ Animations
             padding-left: 8vh;
             padding-right: 8vh;
         }
+
+        .pulse {
+            font-size: 400%;
+        }   
     }
+@media (max-width: 575.98px) {
+        .pulse {
+            font-size: none;
+        }        
+}
 
 @media (min-width: 576px) { 
     .swipeText {
