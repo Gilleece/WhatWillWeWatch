@@ -6,7 +6,9 @@ const searchState = {
     totalPages: 0,
     totalResults: 0,
     random: false,
-    summary: []
+    summary: [],
+    firstPage: [],   // the first page of results, for re-picking the hero
+    heroId: null     // id of the currently featured movie
 };
 
 /* Escapes user/API supplied text before it goes into innerHTML. */
@@ -42,7 +44,7 @@ async function runSearch(filters, { random = false, summary = [] } = {}) {
         searchState.page = data.page;
         searchState.totalPages = Math.min(data.total_pages || 0, 500);
         searchState.totalResults = data.total_results || 0;
-        renderResults(data.results || [], { replace: true });
+        renderRecommendation(data.results || []);
         updateResultsCount();
         updateLoadMore();
         return searchState.totalResults;
@@ -61,8 +63,8 @@ async function loadMore() {
         if (searchState.random) {
             const data = await discoverRandomPage(searchState.filters);
             searchState.page = data.page;
-            renderResults(data.results || [], { replace: true });
-            document.getElementById("resultsGrid").scrollIntoView({ behavior: "smooth" });
+            renderRecommendation(data.results || []);
+            document.getElementById("heroRec").scrollIntoView({ behavior: "smooth" });
         } else {
             const data = await discoverMovies(searchState.filters, searchState.page + 1);
             searchState.page = data.page;
@@ -79,6 +81,15 @@ async function loadMore() {
 function hideResults() {
     document.getElementById("resultsSection").hidden = true;
     document.getElementById("resultsGrid").innerHTML = "";
+    clearHero();
+}
+
+function clearHero() {
+    const hero = document.getElementById("heroRec");
+    hero.hidden = true;
+    hero.innerHTML = "";
+    document.getElementById("moreHeading").hidden = true;
+    searchState.heroId = null;
 }
 
 //---------------------- Rendering ----------------------
@@ -100,11 +111,91 @@ function updateResultsCount() {
 }
 
 function renderSkeletons() {
+    clearHero();
     const grid = document.getElementById("resultsGrid");
     grid.innerHTML = Array.from({ length: 10 })
         .map(() => `<div class="movie-card skeleton"><div class="poster-wrap"></div></div>`)
         .join("");
     document.getElementById("loadMoreWrap").hidden = true;
+}
+
+//---------------------- Featured recommendation (hero) ----------------------
+
+/*
+Features one movie up top as "your pick", then renders the rest as the grid.
+The pick is chosen at random from the first 10 so each search feels fresh.
+*/
+function renderRecommendation(movies) {
+    searchState.firstPage = movies;
+    const rest = renderHeroFrom(movies);
+    renderResults(rest, { replace: true });
+}
+
+/* Picks (and renders) the hero; returns the remaining movies for the grid. */
+function renderHeroFrom(movies) {
+    const heroEl = document.getElementById("heroRec");
+    const heading = document.getElementById("moreHeading");
+    if (movies.length === 0) {
+        clearHero();
+        return movies;
+    }
+    const pool = Math.min(movies.length, 10);
+    let index;
+    do {
+        index = Math.floor(Math.random() * pool);
+    } while (pool > 1 && movies[index].id === searchState.heroId);
+
+    const hero = movies[index];
+    searchState.heroId = hero.id;
+    heroEl.innerHTML = heroCardHtml(hero);
+    heroEl.hidden = false;
+
+    const rest = movies.filter((_, i) => i !== index);
+    heading.hidden = rest.length === 0;
+    return rest;
+}
+
+function heroCardHtml(movie) {
+    const year = (movie.release_date || "").slice(0, 4);
+    const rating = movie.vote_average ? movie.vote_average.toFixed(1) : null;
+    const genres = (movie.genre_ids || [])
+        .map((id) => GENRE_NAMES[id])
+        .filter(Boolean)
+        .slice(0, 3)
+        .join(" · ");
+    const backdrop = movie.backdrop_path ? `${IMG_BASE}/w1280${movie.backdrop_path}` : "";
+    const poster = movie.poster_path
+        ? `<img class="hero-poster" src="${IMG_BASE}/w342${movie.poster_path}" alt="${esc(movie.title)} poster">`
+        : `<div class="hero-poster hero-poster-fallback">🎬</div>`;
+    return `
+        <div class="hero-inner" data-id="${movie.id}" role="button" tabindex="0"
+             aria-label="${esc(movie.title)} — details">
+            ${backdrop ? `<div class="hero-backdrop" style="background-image:url('${backdrop}')"></div>` : ""}
+            <div class="hero-content">
+                ${poster}
+                <div class="hero-details">
+                    <span class="hero-label">✨ Here's your pick</span>
+                    <h2 class="hero-title">${esc(movie.title)}</h2>
+                    <p class="hero-meta">
+                        ${rating ? `<span class="hero-rating">★ ${rating}</span>` : ""}
+                        ${year ? `<span>${year}</span>` : ""}
+                        ${genres ? `<span>${esc(genres)}</span>` : ""}
+                    </p>
+                    ${movie.overview ? `<p class="hero-overview">${esc(movie.overview)}</p>` : ""}
+                    <div class="hero-actions">
+                        <button type="button" class="hero-btn hero-btn-primary" data-action="details">View details</button>
+                        <button type="button" class="hero-btn hero-btn-ghost" data-action="another">🎲 Pick another</button>
+                    </div>
+                </div>
+            </div>`;
+}
+
+/* Re-features a different movie from the same first page (without a new search). */
+function pickAnotherHero() {
+    searchState.page = 1;
+    renderRecommendation(searchState.firstPage);
+    document.getElementById("heroRec").scrollIntoView({ behavior: "smooth", block: "start" });
+    updateLoadMore();
 }
 
 function movieCardHtml(movie) {
@@ -148,6 +239,7 @@ function renderResults(movies, { replace }) {
 }
 
 function renderSearchError() {
+    clearHero();
     document.getElementById("resultsGrid").innerHTML = `
         <div class="empty-state">
             <span class="empty-emoji">📡</span>
@@ -354,6 +446,26 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             openMovieModal(card.dataset.id);
         }
+    });
+
+    // Hero recommendation: "Pick another" reshuffles, anything else opens details.
+    const hero = document.getElementById("heroRec");
+    const heroActivate = (e) => {
+        const inner = e.target.closest(".hero-inner[data-id]");
+        if (!inner) return;
+        const action = e.target.closest("[data-action]");
+        if (action && action.dataset.action === "another") {
+            pickAnotherHero();
+        } else {
+            openMovieModal(inner.dataset.id);
+        }
+    };
+    hero.addEventListener("click", heroActivate);
+    hero.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        if (e.target.closest(".hero-btn")) return; // let buttons handle their own activation
+        e.preventDefault();
+        heroActivate(e);
     });
 
     document.getElementById("loadMoreBtn").addEventListener("click", loadMore);

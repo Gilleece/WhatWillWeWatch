@@ -185,7 +185,7 @@ async function startChat() {
 
     if (total > 0) {
         await botSay(
-            `Here we go — <strong>${formatCount(total)} matches</strong> below. Tap any poster for trailers, cast and where to stream. 🍿`,
+            `I've picked one out for you 🍿 — scroll down for tonight's recommendation, plus <strong>${formatCount(total)} matches</strong> to browse. Tap any title for trailers, cast and where to stream.`,
             500
         );
         offerNextSteps();
