@@ -1572,13 +1572,10 @@ button {
     }
 }
 
-@media (max-width: 420px) {
-    .advanced-btn span {
-        display: none;
-    }
-
+@media (max-width: 640px) {
     .advanced-btn {
-        padding: 0.55rem 0.7rem;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.85rem;
     }
 }
 
