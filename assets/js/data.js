@@ -76,7 +76,8 @@ const LANGUAGES = [
 const MOODS = [
     { emoji: "😂", label: "Make me laugh", genres: "35" },
     { emoji: "💥", label: "Adrenaline rush", genres: "28|12" },
-    { emoji: "😱", label: "Scare me", genres: "27|53" },
+    { emoji: "😱", label: "Scare me", genres: "27" },
+    { emoji: "🫣", label: "Something thrilling", genres: "53" },
     { emoji: "🤯", label: "Blow my mind", genres: "878|9648" },
     { emoji: "❤️", label: "Something heartfelt", genres: "10749|18" },
     { emoji: "🍿", label: "Family night", genres: "10751|16" },
