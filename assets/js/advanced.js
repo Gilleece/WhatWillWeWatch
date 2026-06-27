@@ -6,6 +6,7 @@ const advancedState = {
 };
 
 function openDrawer() {
+    document.dispatchEvent(new Event("wwww:draweropen"));
     // Pick up a country chosen in the chat since the drawer was built.
     const regionSelect = document.getElementById("regionSelect");
     if (appState.region && regionSelect.value !== appState.region) {

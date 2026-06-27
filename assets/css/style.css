@@ -255,6 +255,8 @@ button {
 }
 
 .advanced-btn {
+    position: relative;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -273,6 +275,123 @@ button {
     border-color: var(--violet);
     background: rgba(138, 143, 248, 0.12);
     box-shadow: 0 0 18px rgba(138, 143, 248, 0.25);
+}
+
+/* A light sweep across the button, fired periodically from nudge.js. */
+.advanced-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    transform: skewX(-22deg);
+    background: linear-gradient(100deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.06) 35%,
+            rgba(255, 255, 255, 0.38) 50%,
+            rgba(255, 255, 255, 0.06) 65%,
+            transparent 100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.advanced-btn.shine::after {
+    animation: btn-shine 0.9s ease-out;
+}
+
+@keyframes btn-shine {
+    0% {
+        left: -150%;
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 150%;
+        opacity: 0;
+    }
+}
+
+/* Heads-up tooltip pointing toward the advanced-search button. */
+.advanced-nudge {
+    position: fixed;
+    top: 64px;
+    right: 1.2rem;
+    z-index: 60;
+    max-width: 300px;
+    padding: 0.95rem 1.05rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--violet);
+    background: var(--surface-2);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(138, 143, 248, 0.25);
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+    transform-origin: top right;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.advanced-nudge.show {
+    opacity: 1;
+    transform: none;
+}
+
+/* Little caret pointing up at the button. */
+.advanced-nudge::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: 28px;
+    width: 12px;
+    height: 12px;
+    background: var(--surface-2);
+    border-left: 1px solid var(--violet);
+    border-top: 1px solid var(--violet);
+    transform: rotate(45deg);
+}
+
+.advanced-nudge p {
+    margin: 0 0 0.75rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--text-dim);
+}
+
+.advanced-nudge p strong {
+    color: var(--text);
+}
+
+.advanced-nudge-cta {
+    border: none;
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    background: var(--grad-violet);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.advanced-nudge-close {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.45rem;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.advanced-nudge-close:hover {
+    color: var(--text);
 }
 
 /* ============================================================

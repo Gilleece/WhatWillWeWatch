@@ -56,6 +56,13 @@
         </button>
     </header>
 
+    <!-- Heads-up nudge toward advanced search -->
+    <div id="advancedNudge" class="advanced-nudge" role="status" hidden>
+        <button id="advancedNudgeClose" class="advanced-nudge-close" type="button" aria-label="Dismiss">✕</button>
+        <p>Looking for something specific? <strong>Advanced search</strong> lets you filter by cast, streaming service, ratings, language and more.</p>
+        <button id="advancedNudgeCta" class="advanced-nudge-cta" type="button">Try advanced search →</button>
+    </div>
+
     <main>
         <!-- Conversational guided search -->
         <section class="chat-section" aria-label="Guided movie search">
@@ -185,6 +192,7 @@
     <script src="assets/js/results.js" defer></script>
     <script src="assets/js/chat.js" defer></script>
     <script src="assets/js/advanced.js" defer></script>
+    <script src="assets/js/nudge.js" defer></script>
     <script src="assets/js/main.js" defer></script>
 </body>
 

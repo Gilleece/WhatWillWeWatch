@@ -118,7 +118,7 @@ async function askRegion() {
 }
 
 function buildChatFilters() {
-    const { mood, era, time, vibe } = chatState;
+    const { mood, era, time, vibe, subs } = chatState;
     const filters = {
         sort_by: vibe.sort,
         "vote_count.gte": vibe.voteGte,
@@ -129,24 +129,26 @@ function buildChatFilters() {
     if (era.from) filters["primary_release_date.gte"] = `${era.from}-01-01`;
     if (era.to) filters["primary_release_date.lte"] = `${era.to}-12-31`;
     if (time.maxRuntime) filters["with_runtime.lte"] = time.maxRuntime;
+    if (subs && subs.lang) filters.with_original_language = subs.lang;
     return filters;
 }
 
 function chatSummary() {
-    const { mood, era, time, vibe } = chatState;
+    const { mood, era, time, vibe, subs } = chatState;
     const parts = [
         `${mood.emoji} ${mood.label}`,
         `${era.emoji} ${era.label}`,
         `${time.emoji} ${time.label}`,
         `${vibe.emoji} ${vibe.label}`
     ];
+    if (subs && subs.lang) parts.push(`${subs.emoji} ${subs.label}`);
     if (appState.region) {
         parts.push(COUNTRY_NAMES[appState.region]);
     }
     return parts;
 }
 
-const ACKS = ["Good call.", "Love it.", "Excellent taste.", "On it.", "Nice."];
+const ACKS = ["Good call.", "Pure class.", "Excellent taste.", "On it.", "Nice."];
 function randomAck() {
     return ACKS[Math.floor(Math.random() * ACKS.length)];
 }
@@ -164,6 +166,9 @@ async function startChat() {
 
     await botSay("<strong>How much time have you got?</strong>");
     chatState.time = await askChips(TIMES);
+
+    await botSay(`${randomAck()} <strong>Want to include subtitled movies?</strong> Or stick to English-language films only?`);
+    chatState.subs = await askChips(SUBTITLES);
 
     await botSay(`${randomAck()} Last one — <strong>what kind of pick should it be?</strong>`);
     chatState.vibe = await askChips(VIBES);

@@ -47,6 +47,7 @@ async function runSearch(filters, { random = false, summary = [] } = {}) {
         renderRecommendation(data.results || []);
         updateResultsCount();
         updateLoadMore();
+        document.dispatchEvent(new Event("wwww:search"));
         return searchState.totalResults;
     } catch (err) {
         console.error(err);
@@ -59,6 +60,7 @@ async function runSearch(filters, { random = false, summary = [] } = {}) {
 async function loadMore() {
     const btn = document.getElementById("loadMoreBtn");
     btn.disabled = true;
+    document.dispatchEvent(new Event("wwww:loadmore"));
     try {
         if (searchState.random) {
             const data = await discoverRandomPage(searchState.filters);
@@ -351,6 +353,7 @@ function castStripHtml(credits) {
 }
 
 async function openMovieModal(id) {
+    document.dispatchEvent(new Event("wwww:movieopen"));
     const modal = document.getElementById("movieModal");
     const content = document.getElementById("modalContent");
     modal.classList.add("open");

@@ -102,6 +102,12 @@ const TIMES = [
     { emoji: "🏔️", label: "Epics welcome", maxRuntime: null }
 ];
 
+/* "Happy with subtitles?" — English-only sets the original-language filter */
+const SUBTITLES = [
+    { emoji: "🌍", label: "Subtitles are fine", lang: null },
+    { emoji: "💬", label: "English only", lang: "en" }
+];
+
 /* "What kind of pick?" — sorting + vote-count windows */
 const VIBES = [
     { emoji: "🔥", label: "Crowd pleaser", sort: "popularity.desc", voteGte: 300 },
