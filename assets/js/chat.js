@@ -148,7 +148,7 @@ function chatSummary() {
     return parts;
 }
 
-const ACKS = ["Good call.", "Pure class.", "Excellent taste.", "On it.", "Nice."];
+const ACKS = ["Sure thing.", "Got it.", "Excellent taste.", "On it.", "Sounds good."];
 function randomAck() {
     return ACKS[Math.floor(Math.random() * ACKS.length)];
 }
